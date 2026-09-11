@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- From [SZ] Mengwu Expanded. The labels are taken as they stand from the author's own English
+       translation, to stay consistent with the ThingDef injections.
+       One correction: the source declared MG_Horse.labelMale twice, the second plainly
+       meant for the female. -->
+
+  <MG_Horse.label>Mengwu Horse</MG_Horse.label>
+  <MG_Horse.labelMale>Male Mughal Horse</MG_Horse.labelMale>
+  <MG_Horse.labelFemale>Female Mughal Horse</MG_Horse.labelFemale>
+  <MG_TiaoShu.label>Mogul Leaping Bunny</MG_TiaoShu.label>
+  <MG_TuSun.label>Rabbit mantle</MG_TuSun.label>
+  <MG_TuBoShu.label>Mongolian Woody Groundhog</MG_TuBoShu.label>
+
+</LanguageData>

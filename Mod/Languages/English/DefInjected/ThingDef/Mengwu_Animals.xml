@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- From [SZ] Mengwu Expanded, for the four animals kept here.
+       The mod's defs are written in Chinese: without these injections everything shows up
+       in Chinese in game. Labels and descriptions come from the author's own English
+       translation, taken as it stands. The tool labels were translated nowhere and are
+       added here. -->
+
+  <MG_Horse.label>Mengwu Horse</MG_Horse.label>
+  <MG_Horse.description>The horse breed bred by the Mughal tribe after careful breeding, compared with ordinary horses, it is faster, has a higher IQ, and is less wild. Because the supply of pasture in the Mughal area is relatively tight, its eating frequency will also increase. lower. \n\nFor the people of the Mughal tribe, the Mughal horse is an indispensable partner in the nomadic life of the nomads, and it is also the favorite horse breed of the Mughal cavalry. \n\nMogulma is most common in grassland areas, and it is also distributed in forest areas such as temperate and frigid zones.</MG_Horse.description>
+  <MG_TiaoShu.label>Mogul Leaping Bunny</MG_TiaoShu.label>
+  <MG_TiaoShu.description>The jumping rabbit, which was originally an endangered species in the old Shenzhou area, has rejuvenated its second spring after being introduced to the marginal world. The Mongolian herdsmen in the Shenzhou area like to keep this cute animal as a pet. In the Mengwu Totem There is also an image of a jumping rabbit, which shows its importance to the Mughal people. \n\nWild jumping rabbits are mostly distributed in semi-desert areas, and their food requirements are very low. In addition, they are also distributed in forest areas.</MG_TiaoShu.description>
+  <MG_TuSun.label>Rabbit mantle</MG_TuSun.label>
+  <MG_TuSun.description>Protected animals native to the cold regions of China can adapt to a relatively cold and barren environment, and eat less food, but they are already on the verge of extinction in the old China. Therefore, under the promotion of the Mumbai Biological Conservation Organization, the rabbit mantle was introduced to the edge world. \n\nAfter being introduced to the border world, the manul has maintained similar habits as before. It still chooses to prey on small animals such as rats. Its survival ability has also been improved. In addition, it has become more humane now. More suitable as a pet.</MG_TuSun.description>
+  <MG_TuBoShu.label>Mongolian Woody Groundhog</MG_TuBoShu.label>
+  <MG_TuBoShu.description>Rodents, mainly distributed in the semi-arid grasslands of China, are widely distributed on the old Shenzhou planet. Such lovely creatures have also been brought to the edge of the world by Mongolian biologists. Groundhog like to dig holes and can adapt to the cold. They are widely distributed in areas with abundant rainfall. \N n Some Mongolian people like to keep it as a pet, while some Mongolian people like to eat it as a game.</MG_TuBoShu.description>
+
+  <MG_Horse.tools.0.label>head</MG_Horse.tools.0.label>
+  <MG_Horse.tools.1.label>left hoof</MG_Horse.tools.1.label>
+  <MG_Horse.tools.2.label>right hoof</MG_Horse.tools.2.label>
+
+  <MG_TiaoShu.tools.0.label>left claw</MG_TiaoShu.tools.0.label>
+  <MG_TiaoShu.tools.1.label>right claw</MG_TiaoShu.tools.1.label>
+  <MG_TiaoShu.tools.2.label>head</MG_TiaoShu.tools.2.label>
+
+  <MG_TuSun.tools.0.label>left claw</MG_TuSun.tools.0.label>
+  <MG_TuSun.tools.1.label>right claw</MG_TuSun.tools.1.label>
+  <MG_TuSun.tools.2.label>head</MG_TuSun.tools.2.label>
+
+  <MG_TuBoShu.tools.0.label>left claw</MG_TuBoShu.tools.0.label>
+  <MG_TuBoShu.tools.1.label>right claw</MG_TuBoShu.tools.1.label>
+  <MG_TuBoShu.tools.2.label>head</MG_TuBoShu.tools.2.label>
+
+</LanguageData>
