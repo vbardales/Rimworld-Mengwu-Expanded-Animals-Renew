@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Based on DiamondJ's Chinese source; English names retained from the original translation.
+       Port localization corrects descriptions, missing fields and head-tool targets. -->
+  <MG_Horse.label>cheval mengwu</MG_Horse.label>
+  <MG_Horse.description>Issu d'une sélection attentive par le peuple mengwu, ce cheval est plus rapide, plus intelligent et moins farouche que les chevaux ordinaires. La rareté des pâturages dans sa région d'origine a aussi favorisé une race qui se nourrit moins souvent.\n\nCompagnon indispensable des nomades mengwu, il est également la monture favorite de leur cavalerie.\n\nLes chevaux mengwu vivent surtout dans les prairies, mais aussi dans les forêts tempérées et froides.</MG_Horse.description>
+  <MG_Horse.tools.0.label>tête</MG_Horse.tools.0.label>
+  <MG_Horse.tools.1.label>sabot gauche</MG_Horse.tools.1.label>
+  <MG_Horse.tools.2.label>sabot droit</MG_Horse.tools.2.label>
+  <MG_TiaoShu.label>gerboise mengwu</MG_TiaoShu.label>
+  <MG_TiaoShu.description>Autrefois menacé sur l'ancienne Shenzhou, ce petit rongeur sauteur a prospéré après son introduction sur les mondes de la Bordure. Les éleveurs mengwu le gardent comme animal de compagnie, et son image figure sur leurs totems.\n\nLes populations sauvages préfèrent les régions semi-désertiques et ont de faibles besoins alimentaires. On les trouve aussi dans les forêts.</MG_TiaoShu.description>
+  <MG_TiaoShu.tools.0.label>griffe gauche</MG_TiaoShu.tools.0.label>
+  <MG_TiaoShu.tools.1.label>griffe droite</MG_TiaoShu.tools.1.label>
+  <MG_TiaoShu.tools.3.label>tête</MG_TiaoShu.tools.3.label>
+  <MG_TuSun.label>chat de Pallas</MG_TuSun.label>
+  <MG_TuSun.description>Un chat de Pallas originaire des régions froides de l'ancienne Shenzhou. Malgré son adaptation aux conditions difficiles et à une nourriture rare, il y a frôlé l'extinction. Une organisation mengwu de protection de la faune l'a introduit sur les mondes de la Bordure.\n\nIl chasse toujours de petits animaux, notamment des rongeurs. Depuis son introduction, il est devenu plus résistant et moins craintif envers les humains, ce qui en fait un meilleur animal de compagnie.</MG_TuSun.description>
+  <MG_TuSun.tools.0.label>griffe gauche</MG_TuSun.tools.0.label>
+  <MG_TuSun.tools.1.label>griffe droite</MG_TuSun.tools.1.label>
+  <MG_TuSun.tools.3.label>tête</MG_TuSun.tools.3.label>
+  <MG_TuBoShu.label>marmotte mengwu</MG_TuBoShu.label>
+  <MG_TuBoShu.description>Un rongeur fouisseur des prairies semi-arides de l'ancienne Shenzhou, introduit sur les mondes de la Bordure par des biologistes mengwu. Il supporte le froid et prospère aussi dans les régions où les précipitations sont abondantes.\n\nCertains Mengwu gardent ces marmottes comme animaux de compagnie, tandis que d'autres les chassent pour leur viande.</MG_TuBoShu.description>
+  <MG_TuBoShu.tools.0.label>griffe gauche</MG_TuBoShu.tools.0.label>
+  <MG_TuBoShu.tools.1.label>griffe droite</MG_TuBoShu.tools.1.label>
+  <MG_TuBoShu.tools.3.label>tête</MG_TuBoShu.tools.3.label>
+  <MG_Horse.race.meatLabel>viande de cheval</MG_Horse.race.meatLabel>
+</LanguageData>

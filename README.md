@@ -1,4 +1,7 @@
-# Mengwu Expanded - Animals Renew
+# Mengwu Expanded - Animals Renew (unofficial)
+
+UNOFFICIAL. This mod is published without the original author's explicit consent.
+If the original author contacts me to request its removal, I undertake to take it down promptly.
 
 The four animals of **[SZ] Mengwu Expanded**, brought forward to RimWorld 1.6.
 
@@ -19,11 +22,9 @@ Four animals.
   animal, wildness 0.1. A steppe horse that carries, and nearly born tame.
 - **Mogul leaping bunny** — body size 0.3, move speed 5.5, twelve years, trainable to Intermediate.
 - **Rabbit mantle** — body size 0.75, fifteen years, wildness 0.35.
-- **Mongolian woody groundhog** — the fourth, same range of stats.
+- **Mongolian woody groundhog** — body size 0.6, twelve years, wildness 0.6.
 
-The defs are written in Chinese. Twenty-six translation keys ship with them, in English and in
-French, so the animals read in your language rather than in Chinese. The English is the author's own
-translation, carried over as it stands.
+The Chinese source defs are covered by 28 DefInjected entries in each of English and French, including animal names, descriptions, attacks, horse meat and the foal label. The original English animal names are retained; descriptions and missing fields have been corrected.
 
 No DLC required. No Harmony, no framework, no dependency of any kind.
 
@@ -31,7 +32,7 @@ Content mod: removing it mid-save will lose any of these four animals already in
 
 ## What changed in the 1.6 update
 
-The same line, three times.
+Wildness migrated on all four animals.
 
 - **`wildness` moved to `<Wildness>` under `statBases`.** It stopped being a field of
   `RaceProperties` in 1.6 and became a StatDef. The old form is not an error, it is simply never

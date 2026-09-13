@@ -44,32 +44,34 @@ abandoned mods: named credit, and a takedown on request.
 
 ## What the port changed
 
-The same line, three times.
+Wildness migrated on all four animals.
 
-- **`wildness` moved to `<Wildness>` under `statBases`, on three of the four animals.** It stopped
+- **`wildness` moved to `<Wildness>` under `statBases`, on all four animals.** It stopped
   being a field of `RaceProperties` in 1.6 and became a StatDef. The old form does not error: nothing
   reads it, and the stat's own default is `-1`, which Core's comment describes as deliberately out of
   range "so we can catch missing wildness stats on animals". The horse's 0.1 — nearly born tame, and
   the point of a steppe mount — was doing nothing.
 
-A diff against the original file shows those three lines and nothing else.
+A diff against the original file shows those four field migrations and nothing else.
 
 ## The translation
 
-The mod's defs are written in Chinese, so without injections every label and description shows up in
-Chinese in game. Twenty-six keys are shipped here, in English and in French.
+The Chinese source defs are covered by 28 DefInjected entries in each of English and French.
+The original English animal names are retained, including `Rabbit mantle` and
+`Mogul Leaping Bunny`; the descriptions were edited for clarity against the Chinese source.
+French translations and those editorial corrections are part of this port, not claims
+about the original author's wording.
 
-- **The English comes from the author's own translation**, carried over as it stands, including
-  `Rabbit mantle` and `Mogul Leaping Bunny`, which are not how an English speaker would name those
-  animals. Rewriting them would be putting words in the author's mouth.
-- **One correction.** The source declared `MG_Horse.labelMale` twice, the second plainly meant for
-  the female; it is injected as `labelFemale` here.
-- **The tool labels were translated nowhere** and are added.
+- Corrected the duplicated male label to the female field and kept horse gender names consistent.
+- Added the missing horse meat and foal labels.
+- Added translated attack labels; on the three small animals, the head is tool index 3,
+  while index 2 is the bite and retains the game's native body-part naming.
+- Replaced malformed line-break text and completed French coverage.
 
 ## What was left alone, and why
 
-- **The three small animals' dessicated corpses** use the base game's horse, squirrel and lynx
-  textures, as the author wrote them.
+- **The horse, jerboa and Pallas's cat corpses** use the base game's horse, squirrel and lynx
+  textures. The groundhog retains its own dessicated texture, as the author wrote it.
 - **No balance value was touched**, including the horse's 0.1 wildness, which now that it is read
   makes it tamer than a vanilla horse.
 

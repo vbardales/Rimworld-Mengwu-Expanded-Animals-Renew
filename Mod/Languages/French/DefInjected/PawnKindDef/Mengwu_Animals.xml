@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Based on DiamondJ's Chinese source; English names retained from the original translation.
+       Port localization corrects descriptions, missing fields and head-tool targets. -->
+  <MG_Horse.label>cheval mengwu</MG_Horse.label>
+  <MG_TiaoShu.label>gerboise mengwu</MG_TiaoShu.label>
+  <MG_TuSun.label>chat de Pallas</MG_TuSun.label>
+  <MG_TuBoShu.label>marmotte mengwu</MG_TuBoShu.label>
+  <MG_Horse.labelMale>cheval mengwu mâle</MG_Horse.labelMale>
+  <MG_Horse.labelFemale>jument mengwu</MG_Horse.labelFemale>
+  <MG_Horse.lifeStages.0.label>poulain mengwu</MG_Horse.lifeStages.0.label>
+</LanguageData>

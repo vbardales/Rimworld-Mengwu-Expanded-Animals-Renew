@@ -1,0 +1,22 @@
+[
+  {
+    "Region": "title",
+    "MinimumContrast": 8.72
+  },
+  {
+    "Region": "suffix",
+    "MinimumContrast": 8.9
+  },
+  {
+    "Region": "tag",
+    "MinimumContrast": 9.02
+  },
+  {
+    "Region": "summary",
+    "MinimumContrast": 11.31
+  },
+  {
+    "Region": "badge",
+    "MinimumContrast": 10.27
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "Mod\\About\\About.xml",
+    "SHA256": "6AD65997FF44CF5EF1803B08973BC6D59DF390891FB5DB4FA37A5954AB70C7D7"
+  },
+  {
+    "Path": "Mod\\Defs\\MGAnimal.xml",
+    "SHA256": "FE1BE13598ACB0646ECC989BDAEE20752EAD8A1F79F10BD1241DFF2847987583"
+  },
+  {
+    "Path": "Mod\\Languages\\English\\DefInjected\\PawnKindDef\\Mengwu_Animals.xml",
+    "SHA256": "C7F1004CE01653B57E6BD1304FC8C79815E78961650A6CE5FC7379C0155ADE37"
+  },
+  {
+    "Path": "Mod\\Languages\\English\\DefInjected\\ThingDef\\Mengwu_Animals.xml",
+    "SHA256": "4AB1CACB3F37F11F9BB8263D0CC9B09B2E2F68BA55BACCC8AB5F39FEC60A80A6"
+  },
+  {
+    "Path": "Mod\\Languages\\French\\DefInjected\\PawnKindDef\\Mengwu_Animals.xml",
+    "SHA256": "74FC743E7E72E406C3F9D53934B43EFC2BAB846914AD47CEE171B33456F36B21"
+  },
+  {
+    "Path": "Mod\\Languages\\French\\DefInjected\\ThingDef\\Mengwu_Animals.xml",
+    "SHA256": "0102274714D18CFA6B5901A1588B0E512E11F31140125621C2E1BCD33F8E1D80"
+  }
+]
