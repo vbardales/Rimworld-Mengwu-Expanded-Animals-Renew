@@ -1,0 +1,14 @@
+English coverage: 28/28; no duplicate, empty, placeholder or malformed values.
+French coverage: 28/28; no duplicate, empty, placeholder or malformed values.
+PASS: 6 XML files parsed; 28 owned display fields covered in both languages.
+PASS: four Wildness regressions; race/life-stage/pack contracts; 149 Core/local references; 18 PNGs; distribution metadata.
+PASS guard missing-french: rejected with 'Missing French field: ThingDef/MG_Horse.race.meatLabel'
+PASS guard wrong-head-target: rejected with 'Injection targets an unowned field: English ThingDef/MG_TuSun.tools.2.label'
+PASS guard legacy-wildness: rejected with 'Obsolete race/wildness regression'
+PASS guard missing-texture: rejected with 'Missing north texture: Things/Animal/TiaoTu/TiaoTu'
+PASS: four deliberate regressions rejected in isolated copies; shipped files untouched.
+Patch operations applied: 29
+Defs indexed: 11590
+
+Keys checked: 56 - errors: 0
+PASS: all automated checks completed. No game process or functional scenario was run.

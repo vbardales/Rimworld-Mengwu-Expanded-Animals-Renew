@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimalsrenew
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-stage:        preTest
+stage:        done
 licence:      silent
 licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
@@ -17,7 +17,6 @@ tested_on:
 workshop:
 remaining:
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves.
-  - feature: Written functional scenarios and remaining applicable XML/content regressions are needed before done.
 session:      audit 2026-09-13
 updated:      2026-09-13
 ---
@@ -50,7 +49,7 @@ advance the cumulative stage past its first blocked transition.
 | preOptions -> options | Independently validated as not applicable, with the settings inventory below. No in-game requirement imported into this transition. |
 | options -> l10n | Validated by the localization completion follow-up below: 28 owned fields per language, six XML files valid, 56 injection paths pass; static/editorial coverage complete. In-game text checks remain pending. |
 | l10n -> preTest | Dependency inspection passes independently for this Core-only content: no third-party class, comp, patch, conditional folder or required integration. See scope below. |
-| preTest -> done | Not established. No written functional scenarios or maintained automated/XML regression suite found. Direct XML and injection checks ran, but their passes do not certify semantic translation correctness or replace missing scenarios. Separate C# unit/build tests are not applicable to this XML-only mod. |
+| preTest -> done | Validated by Tests/RESULTS.md: 15 functional scenarios written (not run); combined automated/XML/resource checks executed and passed on the recorded payload. Non-applicable code/settings tests justified. |
 | done -> tested | Non verified: no in-game scenario execution, log review, EN/FR display validation or new/existing-save validation performed. Installed game files alone are not runtime evidence. |
 
 ## Settings audit
@@ -293,6 +292,34 @@ Next transition: write functional scenarios with preconditions/actions/expected 
 complete and run the applicable content/XML regression checks, and record the final
 payload version to establish done. In-game logs, generated names, EN/FR layout, animal
 behaviour and new/existing-save scenarios remain unverified until done -> tested.
+## Automated tests and scenarios — 2026-09-13, current milestone
+
+Current stage: `done`, meaning ready for final in-game functional validation, not tested.
+The user explicitly requested a commit and written functional scenarios plus automated
+tests only; no game was launched and no runtime scenario was executed.
+
+Committed completed art, metadata, localization and preceding audit work as
+`72e9266a78b710495a4d9f3437d18dfd17143f17` (Complete mod artwork, metadata and
+English/French localization). Git status was clean immediately afterward.
+The Mod payload has not changed since that commit.
+
+Wrote `TEST_SCENARIOS.md`: 15 scenarios, each with preconditions, actions and expected
+results, all NOT RUN. Added `Tests/Check-Content.ps1`, `Tests/Test-RegressionGuards.ps1`
+and the combined `Tests/Run-Tests.ps1`. Existing localization coverage checker retained.
+Executed the final combined runner: exit 0. Six XML files, 28 fields per language,
+149 Core/local references, 18 PNGs, four Wildness regressions and four deliberately
+broken-copy guards passed. Shared reflected injection check: 56 keys, zero errors,
+no UNVERIFIED targets. No C# build or settings tests apply to this payload.
+
+Evidence and limitations: `Tests/RESULTS.md`, full `Tests/Automated-output.txt`, exact
+`Tests/Payload-files.json` and `Tests/Test-files.json`. Reference game data:
+1.6.4871 rev590. Prior visual checks remain valid because the PNGs are unchanged.
+`git diff --check` passed. Test/scenario documentation and this status are the only
+new tracked work after the payload commit; test scratch copies remain in ignored .build.
+
+The next transition, done -> tested, requires the written in-game scenarios, logs,
+EN/FR interface checks and new/existing-save coverage. All remain unverified, and are
+outside the user's requested scope for this turn. Session title tracks `done`.
 ## Historical status note (2026-09-12; retained, superseded by the audit above)
 
 # Mengwu Expanded - Animals Renew — status

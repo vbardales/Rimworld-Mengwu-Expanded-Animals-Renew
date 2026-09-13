@@ -1,0 +1,127 @@
+[
+  {
+    "Path": "Mod/About/About.xml",
+    "Bytes": 4005,
+    "SHA256": "6AD65997FF44CF5EF1803B08973BC6D59DF390891FB5DB4FA37A5954AB70C7D7"
+  },
+  {
+    "Path": "Mod/About/ModIcon.png",
+    "Bytes": 26396,
+    "SHA256": "02FC0299D2E1DFE07E63B65D337C821925E670C073A7F57B1E669866D8393AC9"
+  },
+  {
+    "Path": "Mod/About/Preview.png",
+    "Bytes": 516164,
+    "SHA256": "62F185FBAF99E06841282A26ADEFB169EEC4F727C308411CBB0A82CC77427539"
+  },
+  {
+    "Path": "Mod/ATTRIBUTION.md",
+    "Bytes": 4422,
+    "SHA256": "CCDE92FDE30B0ED628D25B3D860A7A2AAEEDD1C59AD97094E153916EA145082A"
+  },
+  {
+    "Path": "Mod/Defs/MGAnimal.xml",
+    "Bytes": 24294,
+    "SHA256": "FE1BE13598ACB0646ECC989BDAEE20752EAD8A1F79F10BD1241DFF2847987583"
+  },
+  {
+    "Path": "Mod/Languages/English/DefInjected/PawnKindDef/Mengwu_Animals.xml",
+    "Bytes": 679,
+    "SHA256": "C7F1004CE01653B57E6BD1304FC8C79815E78961650A6CE5FC7379C0155ADE37"
+  },
+  {
+    "Path": "Mod/Languages/English/DefInjected/ThingDef/Mengwu_Animals.xml",
+    "Bytes": 2825,
+    "SHA256": "4AB1CACB3F37F11F9BB8263D0CC9B09B2E2F68BA55BACCC8AB5F39FEC60A80A6"
+  },
+  {
+    "Path": "Mod/Languages/French/DefInjected/PawnKindDef/Mengwu_Animals.xml",
+    "Bytes": 666,
+    "SHA256": "74FC743E7E72E406C3F9D53934B43EFC2BAB846914AD47CEE171B33456F36B21"
+  },
+  {
+    "Path": "Mod/Languages/French/DefInjected/ThingDef/Mengwu_Animals.xml",
+    "Bytes": 3182,
+    "SHA256": "0102274714D18CFA6B5901A1588B0E512E11F31140125621C2E1BCD33F8E1D80"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMa_east.png",
+    "Bytes": 14882,
+    "SHA256": "78BC4280FC79134E5DBAF88F4A5ED8D4B11A6BBFB1DD481F6F6E95B3E2BB28D3"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMa_north.png",
+    "Bytes": 15039,
+    "SHA256": "ECFA89DB44D42385F31A9F2CC4601BACF2D130A05A54E730531487E22AC245C6"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMa_south.png",
+    "Bytes": 15649,
+    "SHA256": "18C2BB318C17255FAB0BE305898378D80483C2B6DD07A8F5C64AA995808E530D"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMaPack_east.png",
+    "Bytes": 906,
+    "SHA256": "6154D8525104E874AAB84461430B5F4D231C5E9E805144F5E3187B529D96C561"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMaPack_north.png",
+    "Bytes": 906,
+    "SHA256": "6154D8525104E874AAB84461430B5F4D231C5E9E805144F5E3187B529D96C561"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/MengWuMa/MengWuMaPack_south.png",
+    "Bytes": 906,
+    "SHA256": "6154D8525104E874AAB84461430B5F4D231C5E9E805144F5E3187B529D96C561"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TiaoTu/TiaoTu_east.png",
+    "Bytes": 11459,
+    "SHA256": "C1C4C2D2AFF73C61370AAEE7669455619C2B0BA475264206BA78CD8C6C002224"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TiaoTu/TiaoTu_north.png",
+    "Bytes": 10149,
+    "SHA256": "F33A911AE978A53D40B3F3A9039335116A55323FB9C5C7A5650F752F48989F05"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TiaoTu/TiaoTu_south.png",
+    "Bytes": 10948,
+    "SHA256": "EAA0287752894F5027E5CB11C3805F4D6B8E86CB3C1622C82B2B1FABE0993183"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuBoShu/Dessicated_ToBoShu_east.png",
+    "Bytes": 10561,
+    "SHA256": "82DC3FA4A989DDCFD307A5AFA063508C8DCA36B7AEFF3EF1BAFD4C55A4918E5A"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuBoShu/ToBoShu_east.png",
+    "Bytes": 12014,
+    "SHA256": "7F42A93BA4E61C1C4DB82C33F251AF4C791A866396E9EB7E969810D666762079"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuBoShu/ToBoShu_north.png",
+    "Bytes": 10915,
+    "SHA256": "4DB969DF8285C189D216871C23F827D45E19738036E91585FEB9891D40A1B3EB"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuBoShu/ToBoShu_south.png",
+    "Bytes": 12373,
+    "SHA256": "1418FCBEBDC9C5404B16F5ACCC0CEAC97B8103A2BF2363A2F73CA18696C09FA5"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuSun/TuSun_east.png",
+    "Bytes": 22176,
+    "SHA256": "6F6546EC390CEB18897FC658137378AAE130CFCB67718611C8E855981E8DD317"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuSun/TuSun_north.png",
+    "Bytes": 17484,
+    "SHA256": "5BF56253D2C35600291B99FE414F3838D60397F4F2638FBA4E554D500F3E2402"
+  },
+  {
+    "Path": "Mod/Textures/Things/Animal/TuSun/TuSun_south.png",
+    "Bytes": 20309,
+    "SHA256": "1BDBA5397656DC6755C9B6967B8E9473C1304B41601FD9D6A620B5E930ACF2BE"
+  }
+]
