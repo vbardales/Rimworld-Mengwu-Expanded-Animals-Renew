@@ -21,9 +21,8 @@ workshop:
 remaining:
   - unverified: Tests/Pickle/ suite written, never run (see Tests/Pickle/README.md).
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
-  - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
 session:      audit 2026-09-29
-updated:      2026-09-13
+updated:      2026-09-29
 ---
 
 # Workflow audit — 2026-09-13
