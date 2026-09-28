@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Mengwu Expanded - Animals Renew - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.mengwuexpandedanimals.pickletests</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>In-game functional tests for Nelim's Mengwu Expanded - Animals Renew, run by Pickle. Development only: never published.</description>
+  <modDependencies>
+    <li>
+      <packageId>nelim.mengwuexpandedanimals</packageId>
+      <displayName>Mengwu Expanded - Animals Renew (unofficial)</displayName>
+    </li>
+    <li>
+      <packageId>rimworks.pickle</packageId>
+      <displayName>Pickle</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>nelim.pickletools</packageId>
+      <displayName>Nelim's Pickle Tools</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>nelim.mengwuexpandedanimals</li>
+    <li>rimworks.pickle</li>
+    <li>nelim.pickletools</li>
+  </loadAfter>
+</ModMetaData>

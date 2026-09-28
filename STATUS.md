@@ -8,8 +8,8 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-stage:        preTest
-workflow_stage: preTest
+stage:        done
+workflow_stage: done
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -19,7 +19,8 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:
 remaining:
-  - defect: No Tests/Pickle/ suite and no written justification for its absence. Blocks preTest -> done.
+  - unverified: Tests/Pickle/ suite written, never run (see Tests/Pickle/README.md).
+  - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
 session:      audit 2026-09-29
 updated:      2026-09-13
@@ -453,7 +454,46 @@ changed: `packageId` and `workflow_stage`) to `mengwuexpandedanimals / preTest`.
 Committed as a follow-up to `52b5820` and pushed. Local changes this turn: `Mod/About/ModIcon.png`
 (now 128x128), `Art/ModIcon-check-32.png`, this file. `Art/ModIcon-textless.png` and
 `Art/Preview.ico` remain untracked, both the owner's own recent additions, left as found.
-## Historical status note (2026-09-12; retained, superseded by the audit above)
+
+## Pickle suite written, chain advances to `done` — 2026-09-29, same session, user request
+
+Wrote `Tests/Pickle/` per `AUDIT.md`, "preTest -> done": four feature files, no local C# steps
+(built-in Pickle vocabulary plus `PickleTools`' `InspectTabs`), `wsl-ids.map`, two `wsl-deps.*.map`
+pass files and `Tests/Pickle/README.md` recording scope, the two-pass matrix, commands and evidence
+handling. **Not run.** Writing and scoping is the whole criterion at this transition; execution and
+review belong to `done -> tested`.
+
+Scope, read from `Authoring/README.md` and Pickle's own `Docs/steps.md`: `01-defs.feature` (main
+menu, no save) confirms the mod loads and all four animal defs exist; `02-visuals.feature` spawns
+each adult, captures it (`@review`) and asserts its label text in English and French, catching a
+raw key or a silent English fallback that no offline check can see; `03-persistence.feature` saves
+and reloads two of the four animals, the classic broken-`ExposeData` case; `04-incompatible-source.feature`
+(tagged `@requires:SZ.MengGu.Expanded`, its own pass) asserts the specific symptom `About.xml`
+documents — both mods load, nothing errors — rather than waiting on a red.
+
+**Every def this mod ships names the same defName for a `ThingDef` and a `PawnKindDef`** (`MG_Horse`,
+`MG_TiaoShu`, `MG_TuSun`, `MG_TuBoShu`), the same trap Dalmatians Renew hit. Pickle's untyped `def`
+steps (`field`, `stat`, `raw stat`, `defined by mod`, `was patched by mod`) refuse or can pick the
+wrong database on a shared name; this suite only uses the typed `def {string} of type {string}
+exists`, and leaves every field/stat assertion to the existing offline checks
+(`Tests/Test-RegressionGuards.ps1` already reads Wildness, life stages, `packAnimal` and
+trainability from the shipped XML), rather than write local C# to disambiguate them.
+
+`Tests/Pickle/README.md`'s "What is deliberately not here, and why" section justifies leaving out
+Pickle coverage for F05/F06/F08/F09/F11/F13/F14 of `TEST_SCENARIOS.md`: each is either the engine's
+own responsibility under `AUDIT.md`'s "On ne teste pas le jeu" (taming/training outcomes, actual
+feeding/predation, caravan loading, the birth event, the wildlife-spawn roll) with the mod's own
+declaration already checked offline, or has nothing to test at all (`F13`, no settings exist) or no
+prior revision to test against (`F14`, no save-upgrade case exists yet; `03-persistence.feature`
+covers the save/reload contract instead).
+
+**Furthest currently validated state: `done`**, meaning ready for final in-game functional
+validation, not tested. `stage` and `workflow_stage` both set to `done`. Remaining before `tested`:
+running the four Pickle features (both language launches of pass 1, plus pass 2), reading their
+captures, and the 15 scenarios of `TEST_SCENARIOS.md` in game. Session title regenerated to
+`mengwuexpandedanimals / done`.
+
+Committed as a follow-up to `3629c98` and pushed.
 
 # Mengwu Expanded - Animals Renew — status
 

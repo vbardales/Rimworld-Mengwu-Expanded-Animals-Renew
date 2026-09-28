@@ -1,0 +1,3 @@
+# Bare pass: the mod alone, with the PickleTools bundle for InspectTabs' language-independent
+# "select the thing of def" step (used in 02-visuals.feature and 03-persistence.feature).
+nelim.pickletools path:PickleTools/Mod
