@@ -8,7 +8,7 @@ $ModPath = (Resolve-Path $ModPath).Path
 $core = Join-Path $GameData 'Core/Defs'
 Require (Test-Path $core) "Core definitions unavailable: $core"
 $about = [xml](Get-Content (Join-Path $ModPath 'About/About.xml') -Raw -Encoding UTF8)
-Require ($about.ModMetaData.packageId -ceq 'nelim.mengwuexpandedanimalsrenew') 'Save identity changed'
+Require ($about.ModMetaData.packageId -ceq 'nelim.mengwuexpandedanimals') 'Save identity changed'
 Require (@($about.ModMetaData.supportedVersions.li) -contains '1.6') 'Missing 1.6 support'
 Require (@($about.ModMetaData.incompatibleWith.li) -contains 'SZ.MengGu.Expanded') 'Missing original-mod incompatibility warning'
 Require (-not $about.ModMetaData.modDependencies) 'Unexpected required dependency; review Core-only contract'

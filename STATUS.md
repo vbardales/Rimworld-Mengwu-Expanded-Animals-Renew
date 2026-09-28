@@ -4,11 +4,14 @@ translation_en: complete
 translation_fr: complete
 settings_audit: not_applicable
 mod:          Mengwu Expanded - Animals Renew (unofficial)
-packageId:    nelim.mengwuexpandedanimalsrenew
+packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-stage:        done
+stage:        showcase
+workflow_stage: horsMonoRepo
+upstream_mod_remotes:
+  - N/A
 licence:      silent
 licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
@@ -16,8 +19,10 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:
 remaining:
-  - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves.
-session:      audit 2026-09-13
+  - defect: Mod/About/ModIcon.png is 1254x1254 (in-place edit, not audit's to fix), not the required 128x128. Blocks ModIcon générée.
+  - defect: No Tests/Pickle/ suite and no written justification for its absence. Blocks preTest -> done (moot while ModIcon blocks earlier).
+  - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
+session:      audit 2026-09-29
 updated:      2026-09-13
 ---
 
@@ -320,6 +325,99 @@ new tracked work after the payload commit; test scratch copies remain in ignored
 The next transition, done -> tested, requires the written in-game scenarios, logs,
 EN/FR interface checks and new/existing-save coverage. All remain unverified, and are
 outside the user's requested scope for this turn. Session title tracks `done`.
+
+## Audit — 2026-09-29, retreat from `done` to `showcase`
+
+Audited revision: HEAD `ac3f720` (main, pushed), with two local changes not certified by
+this audit — `Mod/About/ModIcon.png` modified in place and `Art/ModIcon-textless.png`
+added — both apparently the owner's own in-progress icon rework, per AUDIT.md's rule that
+only the mod's owner generates or edits ModIcon; this audit did not touch either file.
+Re-read the current AUDIT.md, MOD_SETTINGS.md and TRANSLATIONS.md in full for this pass
+(dated 2026-09-28, 2026-09-13, 2026-09-25 respectively); no earlier section of this file
+was corrected, only re-verified or superseded below. AGENTS.md and PUBLISHING.md were
+opened for the evidence and CI-publish rules; neither applied to any file this mod ships,
+so nothing in them is repeated here. STYLE_RIMWORLD.md's "ModIcon: contrôle, pas
+génération" section was opened; it is the source of the defect below. WORKSHOP_COMMENTS.md,
+scripts/SEARCHING.md, PickleTools/README.md and PickleTools/Headless/README.md,
+Rimworld-Release-Admin/docs/OPERATIONS.md, Rimworld-Ticket-Dispatcher/docs/{WELCOME,SUBMIT}.md
+and docs/PROTOCOLS-READ.md were not opened: nothing in this pass launches a game, runs a
+Pickle suite, files a ticket or touches CI/Steam, so none of them bears on this audit's
+findings. Re-open before any turn that does one of those.
+
+**Redescent per AUDIT.md's rule 12.** An audit does not stop at what STATUS.md declares;
+it redescends to the last state whose cumulative criteria are all currently met, even below
+the previous `done`. Two independent defects were found on rejoueing the chain:
+
+1. **`horsMonoRepo -> ModIcon generated` no longer passes.** The 2026-09-13 follow-up
+   installed a 128x128 `Mod/About/ModIcon.png`. The file on disk today is 1254x1254 PNG
+   (`sha256` not recorded — the file is mid-edit and this audit does not fingerprint a
+   file its owner is actively changing). An icon absent or non-conforming is, per AUDIT.md,
+   "un critère non vérifié ou un défaut à consigner, jamais une autorisation de la créer":
+   this audit records it and does not resize or regenerate it. This is a transition
+   earlier than `preTest`, so it is the one that fixes the retained state (rule: "La
+   première transition qui échoue fixe l'état retenu").
+   Independently: the local desktop.ini convention (`desktop.ini` at the repo root points
+   at `Art\ModIcon.ico`, which is currently absent from `Art\`) is explicitly "hors
+   contenu publié... ne constitue ni un artefact RimWorld ni un critère de changement
+   d'état" (AUDIT.md, lines 30-41) — noted for the owner, not a blocking finding.
+2. **`preTest -> done` no longer passes independently of the icon.** `Tests/Pickle/` does
+   not exist for this mod, and no section of this file, `TEST_SCENARIOS.md` or
+   `Tests/RESULTS.md` says why a Pickle suite is not written. AUDIT.md: "un mod sans
+   `Tests/Pickle/` et sans phrase qui dit pourquoi n'est pas `done`." Several of the 15
+   scenarios in `TEST_SCENARIOS.md` (directional/life-stage graphics, EN/FR UI text,
+   biome population, settings-absence shortcut check) are exactly the kind of thing
+   AUDIT.md reserves for Gherkin ("ce que seul un jeu qui tourne peut montrer"), so this
+   is not obviously not-applicable either; it is an open call for the owner, not one this
+   audit makes on her behalf.
+
+**What is unaffected.** `dansMonoRepo -> horsMonoRepo` still holds (standalone repo,
+GitHub remote, pushed HEAD, STATUS.md, licence classification, naming) — independently
+re-verified: `git remote -v` still shows the same GitHub origin, `git status` shows only
+the two files above outside HEAD, HEAD is at `ac3f720` which `git log` shows pushed. No
+upstream repository for the source mod was found (already documented in ATTRIBUTION.md's
+four-place licence search); added `upstream_mod_remotes: N/A` to the front matter, which
+was missing it. `l10n` (against the current TRANSLATIONS.md, including its 2026-09-25
+plural-key rule: this mod owns no Keyed strings, only DefInjected labels/descriptions,
+so no counted phrase exists to check) and `options` (against the current MOD_SETTINGS.md:
+still no settings, still no shortcut, still `not_applicable`) both still pass on
+re-verification. No `.dds` file exists anywhere in the repository (`find . -iname
+"*.dds"` — zero results): nothing to move out of git or add to `.gitignore`. No
+`Tests/Pickle/Evidence/` or `evidence/` directory exists for this mod either, so
+AGENTS.md's evidence-trimming rule has nothing to act on here; `Tests/*.md`,
+`Tests/Automated-output.txt` and the two `Tests/*.json` hash manifests are the automated
+test record itself, not Pickle capture evidence, and stay as they are.
+
+**Stage retained: `showcase`**, code chosen per AUDIT.md line 164 (no dedicated code
+exists between `horsMonoRepo` and `Preview générée`; `port` would misstate an autonomous,
+pushed, publicly hosted repo). `workflow_stage: horsMonoRepo` records the literal position.
+`localization`, `translation_en`, `translation_fr` and `settings_audit` are left `complete`
+/ `not_applicable`: they are independent validations per AUDIT.md's rule that a later
+defect does not retroactively invalidate an earlier, still-current check.
+
+**Not done by this audit**: no icon resize, no Pickle suite, no new feature, no image, no
+publication. This audit only re-verifies, records and retreats.
+
+**Next transition** (`horsMonoRepo -> ModIcon generated`): the owner finishes and installs
+a 128x128 `Mod/About/ModIcon.png` (this is hers to do). Once done, re-verify Preview,
+preOptions, options and l10n are still current, then decide and write, in `TEST_SCENARIOS.md`
+or here, whether a `Tests/Pickle/` suite is warranted for this mod and its scope, or the
+written reason it is not, before `preTest -> done` can pass again.
+
+## packageId shortened — 2026-09-29, same session, user request
+
+`packageId` changed from `nelim.mengwuexpandedanimalsrenew` to `nelim.mengwuexpandedanimals`.
+Updated `Mod/About/About.xml` and the identity assertion in `Tests/Check-Content.ps1`
+(both were the only owned files referencing the old value; `repo`, the GitHub URL, the
+mod display name and every defName are unaffected and unchanged). Front matter `packageId`
+updated to match. This changes what any existing save's mod list shows for this mod — a
+save that recorded the old packageId will list it as a differently-identified, "removed"
+mod on next load even though every defName it wrote is still the same and nothing in the
+four animals' data changed; not tested in game this turn. No prior save is known to exist
+with this mod installed (never published), so this is a pre-publication rename, not a
+compatibility break for anyone. Session title regenerated to match: AUDIT.md's rule is
+that the title tracks `<packageId sans nelim.> / <workflow_stage>`, and either half
+changing on its own still requires regenerating it — only `packageId` changed this time,
+`workflow_stage` stays `horsMonoRepo`.
 ## Historical status note (2026-09-12; retained, superseded by the audit above)
 
 # Mengwu Expanded - Animals Renew — status
