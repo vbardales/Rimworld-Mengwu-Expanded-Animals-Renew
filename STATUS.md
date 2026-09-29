@@ -517,3 +517,27 @@ holds this mod:
 `licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
 `alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
 to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
+
+## Preview gets the corner icon, gallery folder started — 2026-09-29, same session, owner's new rule
+
+Applied the owner's new cross-mod showcase rule (`PUBLISHING.md`, 2026-09-29): the Preview now
+carries the cut-out ModIcon in a corner, and the gallery folder's first image is a byte-copy of
+the Preview.
+
+`Art/ModIcon-cutout.png`: the full-resolution `Art/ModIcon-textless.png`, background
+flood-filled transparent from the border (PowerShell/System.Drawing BFS, not a global colour
+threshold, so the horse's own near-black outline is untouched — verified: corner alpha 0,
+subject-centre alpha 255). `render-preview.mjs` embeds it, bottom-left corner, `+15deg` (the
+owner's rule: left corner `+15deg`, right corner `-15deg`), and re-renders
+`Mod/About/Preview.png` (896x504, 530 KB, well under 1 MB). It sits clear of the copy block by
+inspection (copy ends ~y=300, icon starts ~y=329). Fixed in the same file: the Chrome screenshot
+call threw on every successful run (`N bytes written to file` on stderr, non-zero exit even on
+success); it now recognises that line as success. Detail in `Art/Preview-generation.md`.
+
+`Workshop/00-preview.png`: created, byte-identical to `Mod/About/Preview.png` (same SHA256).
+No further gallery images exist yet — none have been captured — so `Workshop/` holds only `00-`
+for now, matching "un dossier d'images sans `00-` identique à la Preview n'est pas une galerie
+prête" without inventing captures that were not taken.
+
+Cosmetic/local-tooling change only: no workflow transition re-verified or moved. `stage` and
+`workflow_stage` remain `done`.

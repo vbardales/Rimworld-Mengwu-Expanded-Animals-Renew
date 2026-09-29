@@ -9,6 +9,7 @@ const palette = JSON.parse(readFileSync(resolve(art, 'preview-palette.json'), 'u
 const veilRgb = palette.veil.match(/[a-f0-9]{2}/gi).map(value => parseInt(value, 16)).join(',');
 const variables = Object.entries(palette).map(([key, value]) => `--${key}:${value}`).join(';');
 const background = readFileSync(resolve(art, 'Preview.png')).toString('base64');
+const icon = readFileSync(resolve(art, 'ModIcon-cutout.png')).toString('base64');
 const html = `<!doctype html><meta charset="utf-8"><title>Mengwu Preview</title>
 <style>
 :root{${variables}}
@@ -16,6 +17,7 @@ const html = `<!doctype html><meta charset="utf-8"><title>Mengwu Preview</title>
 body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--veil);color:var(--inkPrimary)}
 .art,.veil{position:absolute;inset:0}.art{background:url(data:image/png;base64,${background}) center/cover}
 .veil{background:linear-gradient(90deg,rgba(${veilRgb},.96) 0%,rgba(${veilRgb},.94) 47%,rgba(${veilRgb},.40) 62%,transparent 78%)}
+.icon{position:absolute;left:-25px;bottom:-25px;width:200px;height:200px;transform:rotate(15deg);filter:drop-shadow(0 6px 16px rgba(0,0,0,.6))}
 .copy{position:absolute;left:50px;top:54px;width:505px;text-shadow:0 3px 10px rgba(0,0,0,.75)}
 h1,p{margin:0}h1{font-size:46px;font-weight:600;line-height:1.1;letter-spacing:0}
 .suffix{font-size:.65em;color:var(--inkSecondary)}
@@ -28,6 +30,7 @@ p{font-size:21px;font-weight:400;line-height:1.45;width:430px}
 </style><div class="art"></div><div class="veil"></div>
 <div class="copy"><h1>Mengwu Expanded -<br>Animals <span class="suffix">Renew</span></h1><div class="tag">(unofficial)</div><div class="line"></div><p>A steppe horse and three small<br>companions for your colony.</p></div>
 <div class="badge"></div><div class="version">1.6</div>
+<img class="icon" src="data:image/png;base64,${icon}" alt="">
 <script>if(location.hash==='#background')document.body.classList.add('background-only');document.fonts.ready.then(()=>document.documentElement.dataset.fontsReady='true');</script>`;
 writeFileSync(resolve(art, 'preview.html'), html);
 const profile = resolve(root, '.build', 'preview-chrome');
@@ -39,6 +42,7 @@ for (const [name, hash] of [['../Mod/About/Preview.png', ''], ['Preview-backgrou
     '--window-size=896,504', '--virtual-time-budget=2500',
     `--screenshot=${resolve(art, name)}`, pathToFileURL(resolve(art, 'preview.html')).href + hash
   ], { encoding: 'utf8', windowsHide: true, timeout: 30000 });
-  if (result.status !== 0) throw new Error(result.stderr || String(result.error));
+  const wroteFile = /bytes written to file/.test(result.stderr || '');
+  if (result.status !== 0 && !wroteFile) throw new Error(result.stderr || String(result.error));
   console.log(`Rendered ${name}`);
 }
