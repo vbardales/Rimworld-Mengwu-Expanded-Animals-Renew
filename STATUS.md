@@ -580,3 +580,11 @@ pass 1 French, pass 2 incompatible-source) are resubmitted against this fix befo
 prior results are trusted. `stage`/`workflow_stage` stay `done`; `preTest -> done` is unaffected
 (it certifies written/scoped tests, not a green run), and this is exactly what `done -> tested`
 exists to catch. Not yet `tested`: none of the three passes has a green run on the fixed revision.
+
+## Pass 2 green — 2026-09-29, same session
+
+`04-incompatible-source.feature` ran (ticket `20260929-005721-770-2c8e`, `exitReason: passed`,
+1/1). Confirms the symptom `About.xml` documents: with `SZ.MengGu.Expanded` loaded before this
+port, both mods load and nothing is logged about the duplicate defNames. This scenario never
+spawns an animal, so it is unaffected by the alternateGraphicChance fix regardless of when it was
+staged. Pass 1 (English, French) is rerunning on the fixed revision; not yet green.
