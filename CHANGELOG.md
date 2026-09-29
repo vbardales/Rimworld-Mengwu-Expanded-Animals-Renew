@@ -30,9 +30,14 @@ art by Yu Yan and Frolg.
 - **`MG_Horse.labelFemale` was declared as a second `labelMale`** in the source translation. The value
   is plainly the female's; it is injected under the right key here.
 
+- **Removed `MG_Horse`'s `alternateGraphicChance` (0.8), declared with no `alternateGraphics` list.**
+  The roll crashed pawn render initialisation about 80% of the time a horse of this kind was drawn
+  (`TryGetAlternate` -> `TryRandomElementByWeight` on an empty source). Found by a Pickle run,
+  2026-09-29.
+
 ### Notes
 
-Those four field migrations are the entire difference from the original def file. No balance value was changed.
+Those five field changes are the entire difference from the original def file. No balance value was changed.
 
 **Only the animals are taken.** The source also holds weapons, armour, clothing, hats and two sets of
 backstories, none of which is here. That is why this mod is named for the animals rather than for the

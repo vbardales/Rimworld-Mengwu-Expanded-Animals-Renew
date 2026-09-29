@@ -131,7 +131,6 @@
     <combatPower>200</combatPower>
     <ecoSystemWeight>1.9</ecoSystemWeight>
     <wildGroupSize>4~7</wildGroupSize>
-    <alternateGraphicChance>0.8</alternateGraphicChance>
     <lifeStages>
       <li>
         <label>幼马</label>

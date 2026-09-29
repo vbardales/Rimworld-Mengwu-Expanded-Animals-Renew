@@ -19,7 +19,7 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:
 remaining:
-  - unverified: Tests/Pickle/ suite written, never run (see Tests/Pickle/README.md).
+  - unverified: Tests/Pickle/ pass 1 English run once, found and fixed a real crash (alternateGraphicChance); none of the three passes has a green run on the fixed revision yet.
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
 session:      audit 2026-09-29
 updated:      2026-09-29
@@ -541,3 +541,42 @@ prête" without inventing captures that were not taken.
 
 Cosmetic/local-tooling change only: no workflow transition re-verified or moved. `stage` and
 `workflow_stage` remain `done`.
+
+## First Pickle run: real crash found, fixed, offline guard added — 2026-09-29, same session
+
+Ran pass 1 English (`sans-facultatifs`, ticket `20260929-005125-190-2f4f`, worker-executed via
+`Submit-PickleRun.ps1`, evidence in `Tests/Pickle/Evidence/2026-09-29-sans-facultatifs-english/`).
+`exitReason: failed`. 1/8 passed, 6 failed, 1 skipped (`04-incompatible-source`, correctly
+excluded by the English filter's `!@french`... no, skipped because its own
+`@requires:SZ.MengGu.Expanded` tag is not staged in this pass's map — expected).
+
+**Root cause, from the JUnit failure message, not guessed:** `MG_Horse`'s `PawnKindDef` declared
+`<alternateGraphicChance>0.8</alternateGraphicChance>` with no `<alternateGraphics>` list anywhere
+in this file or its `AnimalKindBase` parent. About 80% of the time the game tries to draw a horse
+of this kind, `Verse.PawnGraphicUtils.TryGetAlternate` calls `TryRandomElementByWeight` on that
+empty source, throws `NullReferenceException`, and `Log.Error`s during
+`PawnRenderNode_AnimalPart`'s constructor — which fails whichever scenario is running at the time
+per `Authoring/README.md` ("a game error logged during a step fails the scenario"). This is present
+in the original source def too (`ATTRIBUTION.md`'s diff investigation had recorded only the four
+Wildness migrations as the full difference; this field was there, unused by anything until the
+game actually tried to draw the horse — a Pickle-only finding, unreachable by static XML checks).
+The three "Undefined step" failures on `MG_TiaoShu`/`MG_TuSun`/`MG_TuBoShu` are very likely
+knock-on damage from this same crash — `MG_Horse` spawns first in every scenario that reaches it —
+not a real defect in this suite's own step usage; unconfirmed until the rerun below lands.
+
+**Fixed**: removed the orphaned field from `Mod/Defs/MGAnimal.xml`. Updated both `ATTRIBUTION.md`
+copies and `CHANGELOG.md` (four field changes -> five; new "Fixed" entry). **Added an offline
+regression guard** so this class of defect cannot ship silently again: `Tests/Check-Content.ps1`
+now rejects any `PawnKindDef` with `alternateGraphicChance > 0` and no `alternateGraphics` items;
+`Tests/Test-RegressionGuards.ps1` gained a fifth deliberate-regression case
+(`orphaned-alternate-chance`) proving the new check actually rejects it. The check itself had a
+real bug on its first write — `@($kind.alternateGraphics.li)` on a missing element wraps a single
+`$null` into a one-element array in PowerShell, so the naive `.Count -gt 0` always passed; fixed to
+check `$kind.alternateGraphics` truthy first. `Tests/Run-Tests.ps1` reran clean: 5/5 regression
+guards, 56/56 DefInjected keys, 149 Core/local references, 18 PNGs, all green.
+
+Per `AUDIT.md`, "aucun scénario rouge sans rejeu vert": all three Pickle tickets (pass 1 English,
+pass 1 French, pass 2 incompatible-source) are resubmitted against this fix before any of their
+prior results are trusted. `stage`/`workflow_stage` stay `done`; `preTest -> done` is unaffected
+(it certifies written/scoped tests, not a green run), and this is exactly what `done -> tested`
+exists to catch. Not yet `tested`: none of the three passes has a green run on the fixed revision.

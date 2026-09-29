@@ -25,6 +25,13 @@ Require ($nodes.Count -eq 8) 'Expected four animal races and four pawn kinds'
 Require (@($nodes | Group-Object { $_.Name + '/' + $_.defName } | Where-Object Count -gt 1).Count -eq 0) 'Duplicate typed defName'
 Require ($defs.SelectNodes('//*[@Class or @MayRequire or @MayRequireAny]|//MainButtonDef|//comps|//modExtensions').Count -eq 0) 'New custom integration needs explicit review'
 Require ($defs.SelectNodes('//race/wildness').Count -eq 0) 'Obsolete race/wildness regression'
+# alternateGraphicChance without a matching alternateGraphics list crashes pawn render init
+# (TryGetAlternate -> TryRandomElementByWeight on an empty source), found by Pickle 2026-09-29.
+foreach ($kind in $defs.SelectNodes('/Defs/PawnKindDef')) {
+    if ($kind.alternateGraphicChance -and [double]$kind.alternateGraphicChance -gt 0) {
+        Require ($kind.alternateGraphics -and @($kind.alternateGraphics.li).Count -gt 0) "alternateGraphicChance without alternateGraphics: $($kind.defName)"
+    }
+}
 $wildness = @{ MG_Horse = '0.1'; MG_TiaoShu = '0.35'; MG_TuSun = '0.35'; MG_TuBoShu = '0.6' }
 foreach ($id in $wildness.Keys) {
     $race = $defs.SelectSingleNode("/Defs/ThingDef[defName='$id']")

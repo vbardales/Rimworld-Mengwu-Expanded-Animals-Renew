@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $scratch = Join-Path $root ('.build/regression-guards-' + [guid]::NewGuid().ToString('N'))
 $utf8 = [Text.UTF8Encoding]::new($false)
-$cases = @('missing-french','wrong-head-target','legacy-wildness','missing-texture')
+$cases = @('missing-french','wrong-head-target','legacy-wildness','missing-texture','orphaned-alternate-chance')
 foreach ($case in $cases) {
     $dir = Join-Path $scratch $case
     New-Item -ItemType Directory -Path $dir -Force | Out-Null
@@ -25,10 +25,15 @@ foreach ($case in $cases) {
         $text = $text.Replace('<packAnimal>true</packAnimal>','<wildness>0.1</wildness><packAnimal>true</packAnimal>')
         [IO.File]::WriteAllText($file,$text,$utf8)
         $expected = 'Obsolete race/wildness regression'
-    } else {
+    } elseif ($case -eq 'missing-texture') {
         $file = Join-Path $mod 'Textures/Things/Animal/TiaoTu/TiaoTu_north.png'
         Rename-Item -LiteralPath $file -NewName 'TiaoTu_north.missing'
         $expected = 'Missing north texture'
+    } else {
+        $file = Join-Path $mod 'Defs/MGAnimal.xml'
+        $text = [IO.File]::ReadAllText($file).Replace('<wildGroupSize>4~7</wildGroupSize>','<wildGroupSize>4~7</wildGroupSize><alternateGraphicChance>0.8</alternateGraphicChance>')
+        [IO.File]::WriteAllText($file,$text,$utf8)
+        $expected = 'alternateGraphicChance without alternateGraphics'
     }
     $observed = $null
     try {
@@ -41,4 +46,4 @@ foreach ($case in $cases) {
     if (-not $observed -or $observed -notlike "*$expected*") { throw "Guard $case failed to detect intended regression: $observed" }
     Write-Output "PASS guard ${case}: rejected with '$observed'"
 }
-Write-Output 'PASS: four deliberate regressions rejected in isolated copies; shipped files untouched.'
+Write-Output 'PASS: five deliberate regressions rejected in isolated copies; shipped files untouched.'

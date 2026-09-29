@@ -51,8 +51,13 @@ Wildness migrated on all four animals.
   reads it, and the stat's own default is `-1`, which Core's comment describes as deliberately out of
   range "so we can catch missing wildness stats on animals". The horse's 0.1 — nearly born tame, and
   the point of a steppe mount — was doing nothing.
+- **The horse's `alternateGraphicChance` (0.8) removed.** The source declared a chance to draw an
+  alternate coat with no `alternateGraphics` list to draw from. The roll crashes RimWorld 1.6's pawn
+  render tree (`TryGetAlternate` -> `TryRandomElementByWeight` on an empty source), about 80% of the
+  time, whenever a horse of this kind is drawn. Found by a Pickle run on 2026-09-29, not by static
+  inspection: nothing reads the field until the game tries to act on it. Not a balance value.
 
-A diff against the original file shows those four field migrations and nothing else.
+A diff against the original file shows those five field changes and nothing else.
 
 ## The translation
 

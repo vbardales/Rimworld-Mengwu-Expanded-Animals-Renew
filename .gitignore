@@ -6,6 +6,9 @@
 *.user
 *.suo
 
+# Test evidence: kept on disk, not in git (AGENTS.md, "Test evidence")
+Tests/Pickle/Evidence/
+
 # System
 Thumbs.db
 desktop.ini
