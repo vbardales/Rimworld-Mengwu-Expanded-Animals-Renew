@@ -1,15 +1,15 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: partial
 settings_audit: not_applicable
 mod:          Mengwu Expanded - Animals Renew (unofficial)
 packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-stage:        done
-workflow_stage: done
+stage:        showcase
+workflow_stage: l10n
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -19,10 +19,11 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:
 remaining:
-  - unverified: Tests/Pickle/ pass 1 English run once, found and fixed a real crash (alternateGraphicChance); none of the three passes has a green run on the fixed revision yet.
+  - unverified: French review by Virginie (TRANSLATIONS.md, 2026-09-30). See FRENCH_REVIEW.md.
+  - unverified: Tests/Pickle/ pass 1 English run once, found and fixed a real crash (alternateGraphicChance); pass 1 reruns (EN/FR) not yet landed; pass 2 (incompatible-source) green.
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
-session:      audit 2026-09-29
-updated:      2026-09-29
+session:      l10n 2026-09-30
+updated:      2026-09-30
 ---
 
 # Workflow audit — 2026-09-13
@@ -588,3 +589,46 @@ exists to catch. Not yet `tested`: none of the three passes has a green run on t
 port, both mods load and nothing is logged about the duplicate defNames. This scenario never
 spawns an animal, so it is unaffected by the alternateGraphicChance fix regardless of when it was
 staged. Pass 1 (English, French) is rerunning on the fixed revision; not yet green.
+
+## French review by Virginie — 2026-09-30, retreat from `done` to `showcase`
+
+Cross-session message from `TicketDispatcher` (relaying a `TRANSLATIONS.md` change of the same
+day): every mod with a `Languages/French` folder had `translation_fr` reset to `unchecked` for
+the new French gender-agreement rule (`{PAWN_gender ? masculine : feminine : neutral}`, middle-dot
+neutral segment) and the new systematic French review by the owner herself. Session renamed to
+`mengwuexpandedanimals / l10n`.
+
+**Read `TRANSLATIONS.md` section 3 in full**, current version, not a cached one. Read every
+French file of this mod directly, no pattern search:
+`Mod/Languages/French/DefInjected/{ThingDef,PawnKindDef}/Mengwu_Animals.xml`, 28 entries. None of
+them is text that grammatically agrees with an arbitrary pawn's gender — animal names,
+descriptions, tool labels and the horse meat label are fixed per-def text, and the horse's own
+`labelMale`/`labelFemale`/`lifeStages.0.label` already use RimWorld's native separate-key
+mechanism (`jument mengwu` for the mare, correctly gendered on its own, not a `{PAWN_gender ? ...}`
+switch). No text needs the new switch, and none was found with only two segments or a
+parenthesised feminine. This is a reading, not a pattern search: every one of the 28 entries was
+read.
+
+**Generated `FRENCH_REVIEW.md`** with `_tools/Generate-FrenchReview.ps1` (adapted from
+`FoodCourt/_tools/Generate-FrenchReview.ps1`; script writes the file, not a hand copy). One table
+per DefInjected file, one row per entry, Original/English/French columns. Original is the Chinese
+of `[SZ] Mengwu Expanded`, read from this port's own `Mod/Defs/MGAnimal.xml` (the native fallback
+field, per `ATTRIBUTION.md`); the horse's gender/foal labels and the meat label have no Chinese
+source field, marked accordingly. No row was flagged `?`: nothing here reads doubtful on
+terminology, tone or gender agreement, but that is this session's judgement, not the review itself.
+
+**`translation_fr: partial`, not `complete`** — per `TRANSLATIONS.md`, only Virginie's own reading
+of `FRENCH_REVIEW.md` can set it `complete`, and this session never does. `remaining` carries
+`unverified: French review by Virginie`.
+
+**Redescent per `AUDIT.md`'s rule 12.** `options -> l10n` no longer holds as fully `complete`: one
+of its three required fields (`translation_fr`) can be no better than `partial` until a human
+review that no session can perform. This is the exact case `AUDIT.md` names — "une règle posée
+depuis invalide le `complete` d'avant" — so the retained state retreats. `dansMonoRepo` through
+`preOptions`, and `options` (still `not_applicable`, unaffected), remain independently valid.
+**Stage retained: `showcase`, `workflow_stage: l10n`.** The Pickle findings and fixes of
+2026-09-29 (the `alternateGraphicChance` crash, pass 2 green) are unaffected by this retreat and
+stay on record for when the chain reaches `preTest -> done` again.
+
+**Next transition**: Virginie reads `FRENCH_REVIEW.md` and either accepts it (sets
+`translation_fr: complete` herself) or requests corrections. Nothing else in this mod changed.
