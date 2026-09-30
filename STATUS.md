@@ -19,7 +19,7 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:
 remaining:
-  - unverified: French review by Virginie (TRANSLATIONS.md, 2026-09-30). See FRENCH_REVIEW.md.
+  - unverified: French review by Virginie (TRANSLATIONS.md, 2026-09-30), in progress: 4 wording corrections applied to MG_TuSun. See FRENCH_REVIEW.md.
   - unverified: Tests/Pickle/ pass 1 English run once, found and fixed a real crash (alternateGraphicChance); pass 1 reruns (EN/FR) not yet landed; pass 2 (incompatible-source) green.
   - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
 session:      l10n 2026-09-30
@@ -632,3 +632,13 @@ stay on record for when the chain reaches `preTest -> done` again.
 
 **Next transition**: Virginie reads `FRENCH_REVIEW.md` and either accepts it (sets
 `translation_fr: complete` herself) or requests corrections. Nothing else in this mod changed.
+
+## French wording corrections from Virginie's review — 2026-09-30
+
+Four non-blocking corrections applied to `MG_TuSun.description` (French, ThingDef): "moins
+farouche" -> "moins sauvage"; "à une nourriture rare" -> "aux ressources alimentaires rares";
+"envers les humains" -> "à l'égard des humains"; "un meilleur animal de compagnie" -> "mieux
+adapté à la vie d'animal de compagnie". Also `MG_Horse.description`: "moins farouche" -> "moins
+sauvage". `Tests/Run-Tests.ps1` reran clean (5/5 guards, 28/28 both languages, 56/56 keys).
+`FRENCH_REVIEW.md`/`TRADUCTION.md` regenerated. `translation_fr` stays `partial`: her review is
+in progress, not concluded.
