@@ -42,3 +42,9 @@ Those five field changes are the entire difference from the original def file. N
 **Only the animals are taken.** The source also holds weapons, armour, clothing, hats and two sets of
 backstories, none of which is here. That is why this mod is named for the animals rather than for the
 mod it comes from.
+
+## [0.1.0] — 2026-10-01
+
+Creation of the publishIdFile. This upload only created the Workshop item (private, as Steam creates
+every item) and its `About/PublishedFileId.txt`. It contains `Mod/` as it stood at commit `198df47`,
+with nothing changed since. It does not mean the mod is public or tested.
