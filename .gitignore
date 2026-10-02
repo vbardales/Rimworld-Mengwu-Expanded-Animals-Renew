@@ -13,3 +13,9 @@ Tests/Pickle/Evidence/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Textures compiled for the game: generated, never versioned
+*.dds
+
+# Test evidence at the repo root, same rule
+evidence/

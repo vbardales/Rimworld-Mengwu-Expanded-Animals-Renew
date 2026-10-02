@@ -17,13 +17,15 @@ licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
 showcase:     Mod/About/Preview.png
 tested_on:
-workshop:
+workshop:     3811291533 (0.1.0 prepublished, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
   - unverified: French review by Virginie (TRANSLATIONS.md, 2026-09-30), in progress: 4 wording corrections applied to MG_TuSun. See FRENCH_REVIEW.md.
-  - unverified: Tests/Pickle/ pass 1 English run once, found and fixed a real crash (alternateGraphicChance); pass 1 reruns (EN/FR) not yet landed; pass 2 (incompatible-source) green.
-  - unverified: Final in-game scenarios, logs, EN/FR UI, new and existing saves (TEST_SCENARIOS.md, 15 scenarios, none run).
-session:      l10n 2026-09-30
-updated:      2026-09-30
+  - defect: Pickle pass 1 (EN/FR) was red on both reruns, 6/8 failed on "Undefined step ... select the thing of def": the pass map did not stage the InspectTabs companion. Map fixed 2026-10-02; replay pending (docs/runs/pickle.md).
+  - feature: the four animal-mod integrations of PUBLISHING.md (ADS 2, XND Nocturnal Animals, Dogs mate, Better Crossbreeding) are not treated; each needs a guarded optional patch, or a written reason it does not apply to the animal, then its own Pickle pass.
+  - unverified: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04) have no Pickle coverage and no written N/A.
+  - unverified: tested criteria (AUDIT.md gate 9): Pickle pass 1 green EN and FR, @review captures opened and read; pass 2 already green (non-regression). No @wip, no manual test left (TESTING.md).
+session:      mengwuexpandedanimals / l10n
+updated:      2026-10-02
 ---
 
 # Workflow audit — 2026-09-13
@@ -642,3 +644,40 @@ adapté à la vie d'animal de compagnie". Also `MG_Horse.description`: "moins fa
 sauvage". `Tests/Run-Tests.ps1` reran clean (5/5 guards, 28/28 both languages, 56/56 keys).
 `FRENCH_REVIEW.md`/`TRADUCTION.md` regenerated. `translation_fr` stays `partial`: her review is
 in progress, not concluded.
+
+## Audit — 2026-10-02, stage kept at `showcase` / `l10n`
+
+Audited revision `ef17ade` (main, after `198df47`). Before the audit, untracked: `Art/Preview.ico`,
+`Mod/About/PublishedFileId.txt`. Re-read in full: `AUDIT.md` (`5a975b5`); `PUBLISHING.md` in part. Revisions of
+every protocol doc and what was or was not opened: `docs/PROTOCOLS-READ.md`.
+
+**Stage unchanged: `showcase`, `workflow_stage: l10n`.** The first failing transition is still
+`options -> l10n`: `translation_fr` stays `partial` until Virginie finishes her review of `FRENCH_REVIEW.md`
+(only she sets it `complete`). Nothing earlier regressed: standalone repo with remote, ModIcon 128x128 and Preview
+installed (untouched this session, not re-inspected), About metadata, `settings_audit: not_applicable`.
+
+**Prepublication 0.1.0 recorded.** `Mod/About/PublishedFileId.txt` (3811291533, written 2026-10-01 14:41)
+committed `ef17ade`; `CHANGELOG.md` gains `## [0.1.0]` below the unreleased 1.0.0. The upload carried `Mod/` at
+`198df47` (last commit touching `Mod/`). This is an act, not the state `prepublished`: the item is private and
+the mod is neither public nor tested.
+
+**Defect found in the Pickle suite, fixed.** Both pass-1 reruns (2026-09-30) failed 6 of 8 on
+`Undefined step: Nelim's Pickle Tools: I select the thing of def`. `wsl-deps.sans-facultatifs.map` staged
+`nelim.pickletools path:PickleTools/Mod`; the step lives in `PickleTools/InspectTabs/Mod`
+(`nelim.pickletools.inspecttabs`). The line is corrected, the mod line added. The earlier "knock-on from the horse
+crash" guess in the 2026-09-29 section is replaced by this cause. Not replayed: no green pass-1 run exists.
+
+**Checks done, outside the game.** `.dds`: none on disk, none ever in git history of this repo; `*.dds` and
+`evidence/` added to `.gitignore`. Upstream git repo of the source mod: none known (ATTRIBUTION's four-place
+search, unchanged, `upstream_mod_remotes: N/A`). Evidence: nothing was in git; `Tests/Pickle/Evidence/` went from
+281 MB to under 1 MB (deleted the two superseded first runs, `report.html`, `messages.ndjson` and screenshots of
+red runs); kept the green pass-2 report and the two red reruns, the latter as sole proof of the map defect until
+replayed. No launcher archive of this mod existed in `pickle-reports-archive/`. Evidence rules and the three pass
+families are now in `TESTING.md`; manual scenarios F01-F15 each have a disposition there.
+
+**Not done, by rule.** No game launched. No Pickle run submitted in this audit. No animal-mod patch written (a
+feature, outside an audit). No ModIcon or image touched.
+
+**Next transition (`l10n`):** Virginie finishes the French review. Then, to reach `tested` after `done`: replay pass 1
+EN and FR on the corrected map, open and read the `@review` captures, replay pass 2 last with the non-regression
+batch, and decide the four animal-mod integrations and F04 juvenile graphics.

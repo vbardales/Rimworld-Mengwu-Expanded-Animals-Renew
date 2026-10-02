@@ -1,8 +1,8 @@
 # Mengwu Expanded - Animals Renew Pickle suite
 
 Development only. Nothing under `Tests/` is part of the Workshop payload. Written 2026-09-29,
-against the audit note in `STATUS.md` (`preTest -> done`). **Never run.** Nothing here claims an
-in-game result; every finding below is a scope decision, not a report.
+against the audit note in `STATUS.md` (`preTest -> done`). Run history: `docs/runs/pickle.md`; passes and
+evidence to keep: `TESTING.md`. Nothing here claims an in-game result; every finding below is a scope decision.
 
 ## Scope
 
