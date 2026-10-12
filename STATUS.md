@@ -37,4 +37,6 @@ Audited revision 8d867cb. Old vocabulary l10n maps to declareDependencies (AUDIT
 
 Retired field stage: removed. protocols_read_sha written by Mark-ProtocolsRead.ps1. Journal moved out (file was 49 KB).
 
+Closing pass 3 (mod root clean), 2026-10-12: `.build/` removed (regression-guard scratch now in the system temp folder, `.gitignore` entry dropped); `_tools/Generate-FrenchReview.ps1` deleted, FRENCH_REVIEW.md regenerated with the shared `scripts/Make-FrenchReview.ps1` (`french-review-sources.json`: Original from the Defs, English from Languages/English); duplicate `TRADUCTION.md` removed. Automated and XML checks replayed green (`Tests/Run-Tests.ps1`, 56 keys, 0 errors). Root entries left to rule on: `.claude`, `.editorconfig`, `output/`, `Workshop/`.
+
 Next: treat or justify the four integrations (own patch and own Pickle pass where a patch lands), then auditSettings.

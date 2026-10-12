@@ -19,7 +19,7 @@ Core data and managed assemblies, and the shared `../scripts/Check-DefInjected.p
 Override `-GameRoot` and `-InjectionChecker` for other installations. The runner fails
 when required references/checker are unavailable, on errors or on UNVERIFIED injection
 findings; it does not silently skip them. It reads game files without launching the game.
-The regression-guard tests create isolated copies under ignored .build/.
+The regression-guard tests create isolated copies under the system temp folder (removed afterwards).
 
 Reference game: `1.6.4871 rev590`. Final combined runner exited **0**.
 

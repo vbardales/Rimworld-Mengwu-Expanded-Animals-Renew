@@ -1,5 +1,4 @@
 # Development environments
-.build/
 .vs/
 .vscode/
 .idea/

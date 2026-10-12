@@ -28,7 +28,7 @@ opening it now; reread if the revision moved.
 
 Mod-local docs read 2026-10-02: `STATUS.md`, `CHANGELOG.md`, `TEST_SCENARIOS.md`, `Tests/Pickle/README.md`,
 `Mod/About/About.xml`. Not read: `LICENSE` (none at the root), `FRENCH_REVIEW.md` and
-`TRADUCTION.md` (generated), `ATTRIBUTION.md` (only grepped).
+`TRADUCTION.md` (deleted 2026-10-12, duplicate of FRENCH_REVIEW.md), `ATTRIBUTION.md` (only grepped).
 Absent, confirmed by listing: `PUBLICATION.md`, `BACKLOG.md`, `NOTES.md`, `BUGS.md`, `TESTING.md` before
 2026-10-02 (now created).
 

@@ -1,7 +1,7 @@
 param([string]$GameData = 'C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data')
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$scratch = Join-Path $root ('.build/regression-guards-' + [guid]::NewGuid().ToString('N'))
+$scratch = Join-Path ([IO.Path]::GetTempPath()) ('mengwu-regression-guards-' + [guid]::NewGuid().ToString('N'))
 $utf8 = [Text.UTF8Encoding]::new($false)
 $cases = @('missing-french','wrong-head-target','legacy-wildness','missing-texture','orphaned-alternate-chance')
 foreach ($case in $cases) {
@@ -47,3 +47,4 @@ foreach ($case in $cases) {
     Write-Output "PASS guard ${case}: rejected with '$observed'"
 }
 Write-Output 'PASS: five deliberate regressions rejected in isolated copies; shipped files untouched.'
+Remove-Item -LiteralPath $scratch -Recurse -Force
