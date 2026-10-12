@@ -1,0 +1,59 @@
+{
+  "title": "Mengwu Expanded - Animals Renew (unofficial)",
+  "titleSize": 40,
+  "titleParts": [
+    {
+      "text": "Mengwu Expanded -"
+    },
+    {
+      "text": "Animals",
+      "breakBefore": true
+    }
+  ],
+  "suffix": "Renew",
+  "tag": "(unofficial)",
+  "tagInline": true,
+  "copyLines": [
+    "A steppe horse and three small",
+    "companions for your colony."
+  ],
+  "layout": "panel",
+  "panelAnchor": "top-left",
+  "backgroundFile": "Preview-source.png",
+  "backgroundPosition": "center",
+  "backgroundSize": "cover",
+  "echo": {
+    "file": "echo.png",
+    "preSized": true,
+    "mode": "alpha",
+    "color": "var(--accent)",
+    "width": 190,
+    "height": 175,
+    "opacity": 1,
+    "veil": false,
+    "panelTop": 38,
+    "panelRight": 1,
+    "panelWidth": 34,
+    "flipX": true
+  },
+  "iconBadge": {
+    "file": "ModIcon-source.png",
+    "corner": "bottom-left",
+    "width": 180,
+    "translate": "12%, -12%",
+    "rotate": 15,
+    "radius": 48,
+    "outline": false,
+    "veil": "radial",
+    "veilSize": 250,
+    "veilLeft": -45,
+    "veilBottom": -45
+  },
+  "palette": {
+    "veil": "#292C1B",
+    "inkPrimary": "#F2ECE1",
+    "inkSecondary": "#D0D995",
+    "accent": "#48D5C5",
+    "badgeInk": "#17120E"
+  }
+}

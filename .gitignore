@@ -18,3 +18,6 @@ desktop.ini
 
 # Test evidence at the repo root, same rule
 evidence/
+
+# Local Preview renderer checks
+Art/.render/
