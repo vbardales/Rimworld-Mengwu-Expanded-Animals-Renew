@@ -19,14 +19,13 @@ tested_on:
 workshop:     3811291533 (0.1.0 prepublished, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
   - defect: Pickle pass 1 (EN/FR) never produced a verdict. The two 2026-09-30 reruns were red (map lacked the InspectTabs companion, fixed 2026-10-02) and the two 2026-10-02 tickets (20261002-204744-460-bfdd, -614-1f76) ended `invalid` at the dispatcher (empty owner and mod, log gone). No pass-1 ticket is queued. Resubmit at playTests only (AUDIT.md 8.c).
-  - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle: `Tests/Pickle/wsl-deps.avec-facultatifs.map` and `05-animal-prosthetics.feature` written, not run (7.d). Nocturnal, Dogs mate and Better Crossbreeding scenarios are not written: they need shared Pickle steps (body clock, crossbreeding partner and outcome, mating group) that exist only as local steps in Funny Creatures Renew and A Certain Series; owed to NPT (PickleTools). Run at playTests as a small ticket.
-  - unverified: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04) have no Pickle coverage and no written N/A (7.e).
+  - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle: `Tests/Pickle/wsl-deps.avec-facultatifs.map` and `05-animal-prosthetics.feature` written, not run (7.d). Nocturnal, Dogs mate and Better Crossbreeding scenarios are not written: they need shared Pickle steps (body clock, crossbreeding partner and outcome, mating group) that exist only as local steps in Funny Creatures Renew and A Certain Series; owed to NPT (PickleTools), asked 2026-10-13 through the Ticket Manager. Run at playTests as a small ticket.
+  - feature: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04): no step spawns a pawn at a life stage; owed by NPT (asked 2026-10-13 through the Ticket Manager). Offline checks already cover life-stage counts, ages and shipped textures. Write the scenario once the step exists.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
-  - unverified: working tree holds uncommitted Art/ changes and Mod/About ModIcon.png and Preview.png regenerations (not from this session): not reviewed, not committed.
 session:      mengwuexpandedanimals / writeTests[0.1.0]
 updated:      2026-10-13
-protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
+protocols_read_sha: b9e70d5f65c63f769ac01131f6873b6055e4face
 ---
 
 # Mengwu Expanded - Animals Renew: status
@@ -64,7 +63,7 @@ Result: `settings_audit: not_applicable`.
 - Coverage: `Tests/Run-Tests.ps1` green (28 owned display fields in both languages; injection check "Keys checked: 56 - errors: 0"; five regression guards rejected). `scripts/Check-Translations.ps1`: PASS, 14 source texts, 0 Keyed; one WARN, `ThingDef/MG_Horse.race.meatLabel` outside its inventory, covered in EN ("horse meat") and FR ("viande de cheval") and by the injection check.
 - French agreement: names and descriptions are not pawn-bound, no gendered template needed. Reading of every phrase for agreement stays with Virginie's review.
 - `FRENCH_REVIEW.md` regenerated with `scripts/Make-FrenchReview.ps1` (revision a78c364).
-- `translation_fr: partial`: Virginie's review not finished (4 corrections applied to MG_TuSun so far); required complete before leaving `writeTests` (6.g). In-game raw keys, fallback text and clipping: `unverified` until `playTests`.
+- `translation_fr`: `partial` at this date, `complete` after Virginie's review (see "French review" below). In-game raw keys, fallback text and clipping: `unverified` until `playTests`.
 
 Decision 2026-10-13 (Virginie): English labels stay faithful to the original author, `Rabbit mantle` (MG_TuSun) and `Mogul Leaping Bunny` (MG_TiaoShu) are kept even though the animals are a Pallas's cat and a jerboa (ATTRIBUTION.md, "The translation"). The descriptions and the French labels name the real animals. Not a defect.
 
