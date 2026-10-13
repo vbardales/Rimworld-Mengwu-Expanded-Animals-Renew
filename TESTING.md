@@ -8,7 +8,7 @@ Development only, never in `Mod/`. Created 2026-10-02 from `AUDIT.md` gate 9. De
 | Family | Count | Map | Features | Language | Status on the current revision |
 | --- | --- | --- | --- | --- | --- |
 | Without optional mods | 2 launches | `wsl-deps.sans-facultatifs.map` | 01, 02, 03, 08 (baby and juvenile stages) | English, French | **Not green.** Map was wrong until 2026-10-02 (InspectTabs companion missing); replay pending |
-| With optional mods | 1 launch (written 2026-10-13, not run) | `wsl-deps.avec-facultatifs.map` | 05 ADS 2; 06 Nocturnal; 07 Better Crossbreeding (Dogs mate step owed) | English | Not run. Steps 06 and 07 are PickleTools DefFieldSteps, written by NPT 2026-10-13, uncommitted and not played yet: do not rely on them until NPT says so |
+| With optional mods | 1 launch (written 2026-10-13, not run) | `wsl-deps.avec-facultatifs.map` | 05 ADS 2; 06 Nocturnal; 07 Better Crossbreeding and Dogs mate | English | Not run. Steps 06 and 07 are PickleTools DefFieldSteps, written by NPT 2026-10-13, uncommitted and not played yet: do not rely on them until NPT says so |
 | Per declared incompatibility | 1 | `wsl-deps.incompat-source.map` | 04 (`@requires:SZ.MengGu.Expanded`) | English | Green 2026-09-29. Replay only when the source mod changes |
 
 No scenario is `@wip`. The only conditional tag is `@requires:SZ.MengGu.Expanded`, which has its pass.

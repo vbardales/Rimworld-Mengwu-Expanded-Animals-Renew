@@ -9,7 +9,7 @@
 #
 # A BIRTH IS NOT ASKED OF A RUN: a gestation is days of game time and the draw belongs to that mod's code.
 # No save is loaded: everything reads definitions.
-# Steps: PickleTools DefFieldSteps. Written 2026-10-13 before NPT played them; the Dogs mate step is still to come.
+# Steps: PickleTools DefFieldSteps. Written 2026-10-13 before NPT played them; the Dogs mate scenario needs the step "the pawn kind ... is in the mating group ..." (NPT, not played).
 @requires:DizzyEevee.BetterCrossbreeding
 Feature: Better Crossbreeding sees the Mengwu horse as a horse
 
@@ -24,3 +24,10 @@ Feature: Better Crossbreeding sees the Mengwu horse as a horse
     And Nelim's Pickle Tools: the race "MG_TuSun" does not list "Cat" as a crossbreeding partner
     And Nelim's Pickle Tools: the race "MG_TiaoShu" does not list "Horse" as a crossbreeding partner
     And Nelim's Pickle Tools: the race "MG_TuBoShu" does not list "Squirrel" as a crossbreeding partner
+
+  # Dogs mate (Mlie.DogsMate, 2441132298): Patches/Compat_DogsMate.xml puts MG_Horse in its group Horse, and only it.
+  # Controls first: Horse is the mod's own member of that group.
+  @requires:Mlie.DogsMate
+  Scenario: Dogs mate lists the Mengwu horse in the group Horse and nothing else of this mod
+    Then Nelim's Pickle Tools: the pawn kind "Horse" is in the mating group "Horse"
+    And Nelim's Pickle Tools: the pawn kind "MG_Horse" is in the mating group "Horse"
