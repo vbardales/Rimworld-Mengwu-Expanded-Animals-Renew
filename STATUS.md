@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-workflow_stage: playTests[0.1.0]
+workflow_stage: playTests[1.0.0]
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -16,14 +16,14 @@ licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
 showcase:     Mod/About/Preview.png
 tested_on:
-workshop:     3811291533 (0.1.0 prepublished, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
+workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
   - defect: Pickle pass 1 (EN/FR) never produced a verdict. Initial diagnostic tickets filed 2026-10-13 at b0f72d0 (sans-facultatifs EN and FR, avec-facultatifs; ids in docs/runs/pickle.md). Verdicts pending: Mod/ and Tests/ stay on b0f72d0 until RUN_DONE.
   - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle written, not run (7.d): `Tests/Pickle/wsl-deps.avec-facultatifs.map`, features 05 (ADS 2), 06 (Nocturnal), 07 (Better Crossbreeding). Steps of 06 and 07 come from NPT (DefFieldSteps, built, uncommitted, not played: wait for NPT's next message). Dogs mate scenario added to 07 (NPT step "the pawn kind ... is in the mating group ...", written, not played). Run at playTests as a small ticket.
   - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
-session:      mengwuexpandedanimals / playTests[0.1.0]
+session:      mengwuexpandedanimals / playTests[1.0.0]
 updated:      2026-10-13
 protocols_read_sha: b9e70d5f65c63f769ac01131f6873b6055e4face
 ---
@@ -36,7 +36,7 @@ Audited revision 8d867cb. Old vocabulary l10n maps to declareDependencies (AUDIT
 
 Retired field stage: removed. protocols_read_sha written by Mark-ProtocolsRead.ps1. Journal moved out (file was 49 KB).
 
-Closing pass 3 (mod root clean), 2026-10-12: `.build/` removed (regression-guard scratch now in the system temp folder, `.gitignore` entry dropped); `_tools/Generate-FrenchReview.ps1` deleted, FRENCH_REVIEW.md regenerated with the shared `scripts/Make-FrenchReview.ps1` (`french-review-sources.json`: Original from the Defs, English from Languages/English); duplicate `TRADUCTION.md` removed. Automated and XML checks replayed green (`Tests/Run-Tests.ps1`, 56 keys, 0 errors). Root entries left to rule on: `.claude`, `.editorconfig`, `output/`, `Workshop/`.
+Closing pass 3 (mod root clean), 2026-10-12: `.build/` removed (regression-guard scratch now in the system temp folder, `.gitignore` entry dropped); `_tools/Generate-FrenchReview.ps1` deleted, FRENCH_REVIEW.md regenerated with the shared `scripts/Make-FrenchReview.ps1` (`french-review-sources.json`: Original from the Defs, English from Languages/English); duplicate `TRADUCTION.md` removed. Automated and XML checks replayed green (`Tests/Run-Tests.ps1`, 56 keys, 0 errors). Root entries ruled 2026-10-13 (Virginie): `.editorconfig`, `output/`, `Workshop/` and `Preview-generation.md` deleted (the Preview and ModIcon prompts and the art provenance moved to README.md); `.claude/` is the local Claude Code folder, untracked.
 
 Next: treat or justify the four integrations (own patch and own Pickle pass where a patch lands), then auditSettings.
 

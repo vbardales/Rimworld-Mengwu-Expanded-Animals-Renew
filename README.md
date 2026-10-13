@@ -26,7 +26,7 @@ Four animals.
 
 The Chinese source defs are covered by 28 DefInjected entries in each of English and French, including animal names, descriptions, attacks, horse meat and the foal label. The original English animal names are retained; descriptions and missing fields have been corrected.
 
-No DLC required. No Harmony, no framework, no dependency of any kind.
+No DLC required. No Harmony, no framework, no dependency of any kind (the optional integrations below are patches that do nothing without their mod).
 
 Content mod: removing it mid-save will lose any of these four animals already in play.
 
@@ -61,3 +61,20 @@ any other of my mods, including publishing a continuation of it. All credit must
 
 See [ATTRIBUTION.md](ATTRIBUTION.md) for the licence check, what was left behind, and the port in
 detail.
+
+## Optional integrations
+
+Four guarded patches in `Mod/Patches/` add the animals to other mods when those mods are loaded, and do nothing otherwise: A Dog Said... Animal Prosthetics 2, [XND] Nocturnal Animals, Dogs mate and Better Crossbreeding. None is required. The reason for each pairing is in the header of its patch.
+
+## Art provenance
+
+The Preview illustration (`Art/Preview-source.png`, text-free) was generated on 2026-09-13 with the built-in image_gen tool, with the four shipped south-facing animal textures as species, colour and silhouette references. The ModIcon badge source (`Art/ModIcon-source.png`) comes from a generated variant of a reference mascot. The final Preview is composed by `node ../scripts/Render-Preview.cjs` from `Art/Preview.config.json`.
+
+Preview prompt:
+
+> Create a landscape 16:9 RimWorld mod Workshop illustration WITHOUT ANY TEXT. Four animals only, modeled on the four reference sprites (reference art for species, colour and silhouette, not edit targets): one stocky dark reddish-brown Mongolian horse with dark mane, one tiny sandy-orange jerboa with long thin tufted tail and small pointed ears, one squat grey-brown Pallas's cat with broad flat face and rounded ears, one stout tan groundhog. All exactly once. Scene: a small steppe colony animal yard on olive sage grass and compacted square patches of earth, short worn timber fence across upper right, a hay bundle and a single low warm lamp beside the fence. The horse wears a simple faded teal saddle blanket and stands on the RIGHT side, oriented diagonally down-left. The three distinct small animals form a loose triangle in the lower-right yard, with visible gaps and believable size differences; Pallas cat larger than jerboa. Leave the LEFT 50 percent as very calm olive ground with subtle tile rhythm and no subjects, for later title overlay. No humans. Camera high oblique overhead 65-70 degrees above horizon, near orthographic exactly like RimWorld: ground fills entire frame, see animals mostly from above, no horizon, sky or vanishing point. Matte gouache-like game illustration, low texture detail, simple functional slightly worn shapes, soft edges and dark contact shadows, not realistic fur. Dominant olive/sage family across the yard, warm brown horse/wood and small warm lamp pool, a distinct teal blanket accent. Strong clear separated silhouettes, readable at 268 pixels wide. Absolutely no text, letters, numbers, logo, watermark, UI, border, letterboxing, sparkles, lens flare, dramatic landscape, anime, Ghibli, Disney, cartoon mascot, 3D render or isometric diorama. No extra animals.
+
+ModIcon prompt:
+
+> Create one square logo-brand raster variant for "Mengwu Expanded Animals". Reference image: preserve its very bold black outlines, glowing orange and golden-yellow gradients, near-black warm background, cheerful winking expression, small four-point sparkle, clean simple mascot aesthetic. Reinterpret the round smiley as an adorable stylized Mongolian steppe horse head, rounded and compact, with two short horse ears, flowing forelock and a swept mane echoing the ponytail shape in the reference, subtle rounded muzzle and nostrils, one large open black eye with white glint and one winking eye, friendly curved smile. Keep the instantly readable orange emoji family resemblance. Main mascot centered in upper 75 percent, below it beautifully legible bold warm-gold uppercase title on two centered lines: "MENGWU" then "EXPANDED ANIMALS". Strong polished game mod emblem, generous margins, crisp silhouette, no extra animals, no additional text, no watermark. The reference is style and composition guidance.
+
