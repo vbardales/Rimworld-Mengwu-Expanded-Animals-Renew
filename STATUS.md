@@ -26,7 +26,7 @@ remaining:
   - unverified: working tree holds uncommitted Art/ changes and Mod/About ModIcon.png and Preview.png regenerations (not from this session): not reviewed, not committed.
 session:      mengwuexpandedanimals / declareDependencies[0.1.0]
 updated:      2026-10-12
-protocols_read_sha: 7e2994b43fb5b05d704694cbedc2e08ce4ea08e2
+protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
 
 # Mengwu Expanded - Animals Renew: status
