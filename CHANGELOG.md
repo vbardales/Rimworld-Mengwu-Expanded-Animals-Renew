@@ -13,7 +13,7 @@ art by Yu Yan and Frolg.
 
 ### Added
 
-- Complete English and French coverage: 28 entries per language, including attacks, horse meat and the foal label. Original English animal names are retained; descriptions are corrected for clarity.
+- Complete English and French key coverage: 28 entries per language, including attacks, horse meat and the foal label. Original English animal names are retained; descriptions are corrected for clarity.
 
 ### Changed
 
