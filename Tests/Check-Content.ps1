@@ -15,9 +15,21 @@ Require (-not $about.ModMetaData.modDependencies) 'Unexpected required dependenc
 Require ($about.ModMetaData.name.EndsWith(' (unofficial)')) 'Missing unofficial suffix'
 Require ($about.ModMetaData.description.StartsWith('UNOFFICIAL.')) 'Missing unofficial notice'
 Require ($about.ModMetaData.description.Trim().EndsWith('[url=' + $about.ModMetaData.url + ']Source code on GitHub[/url]')) 'Missing final GitHub link'
-foreach ($dir in @('Assemblies','Source','Patches')) {
+foreach ($dir in @('Assemblies','Source')) {
     Require (-not (Test-Path (Join-Path $ModPath $dir))) "New $dir content needs an expanded test/dependency audit"
 }
+# Optional integrations (AUDIT.md 4.f): exactly these four patches, each guarded, none a dependency.
+$patchFiles = @(Get-ChildItem (Join-Path $ModPath 'Patches') -Filter '*.xml' | ForEach-Object Name | Sort-Object)
+Require (($patchFiles -join ',') -ceq 'Compat_ADogSaidAnimalProsthetics2.xml,Compat_BetterCrossbreeding.xml,Compat_DogsMate.xml,Compat_NocturnalAnimals.xml') "Unexpected patch set: $($patchFiles -join ',')"
+foreach ($name in $patchFiles) {
+    $p = [xml](Get-Content (Join-Path $ModPath "Patches/$name") -Raw -Encoding UTF8)
+    $ops = @($p.Patch.Operation)
+    Require ($ops.Count -eq 1) "One guarded operation expected: $name"
+    Require ($p.SelectNodes('//*[@MayRequire or @MayRequireAny]').Count -eq 0) "MayRequire is read by nothing on an Operation: $name"
+    Require ($ops[0].Class -in @('PatchOperationFindMod','PatchOperationConditional')) "Unguarded patch: $name"
+    Require ($null -eq $ops[0].SelectSingleNode('nomatch')) "Top-level nomatch would act without the mod: $name"
+}
+Require (@($about.ModMetaData.loadBefore.li) -contains 'SamBucher.ADogSaidAnimalProsthetics2') 'ADS 2 patch needs loadBefore'
 Require (-not (Test-Path (Join-Path $ModPath 'LoadFolders.xml'))) 'New load folders need a conditional-content audit'
 $defs = [xml](Get-Content (Join-Path $ModPath 'Defs/MGAnimal.xml') -Raw -Encoding UTF8)
 $nodes = @($defs.Defs.ChildNodes | Where-Object NodeType -eq Element)

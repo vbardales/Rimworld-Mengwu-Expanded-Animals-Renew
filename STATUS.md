@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-workflow_stage: localize[0.1.0]
+workflow_stage: writeTests[0.1.0]
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -25,7 +25,7 @@ remaining:
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
   - unverified: working tree holds uncommitted Art/ changes and Mod/About ModIcon.png and Preview.png regenerations (not from this session): not reviewed, not committed.
-session:      mengwuexpandedanimals / localize[0.1.0]
+session:      mengwuexpandedanimals / writeTests[0.1.0]
 updated:      2026-10-13
 protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
@@ -58,3 +58,11 @@ Result: `settings_audit: not_applicable`.
 - Decision: content-only mod, four animals with fixed stats. No concrete player need for an option; none invented.
 - Contract: no entry under Mod options, no MainButtons shortcut, so no empty page and no shortcut (5.b). The absence of C# is not the proof; the search above is.
 - In-game confirmation (Mod options list shows no entry for this mod): `unverified`, joins the `playTests` run.
+
+## Translation audit 2026-10-13 (AUDIT.md 6.a-6.h)
+
+- Inventory: texts shown to the player live in `Mod/Defs/MGAnimal.xml` (Chinese source, 4 animals) and in `Languages/English` and `Languages/French` `DefInjected`. No C#, no Keyed, no LoadFolders. The four optional patches add no displayed text (defNames and extensions only).
+- Coverage: `Tests/Run-Tests.ps1` green (28 owned display fields in both languages; injection check "Keys checked: 56 - errors: 0"; five regression guards rejected). `scripts/Check-Translations.ps1`: PASS, 14 source texts, 0 Keyed; one WARN, `ThingDef/MG_Horse.race.meatLabel` outside its inventory, covered in EN ("horse meat") and FR ("viande de cheval") and by the injection check.
+- French agreement: names and descriptions are not pawn-bound, no gendered template needed. Reading of every phrase for agreement stays with Virginie's review.
+- `FRENCH_REVIEW.md` regenerated with `scripts/Make-FrenchReview.ps1` (revision a78c364).
+- `translation_fr: partial`: Virginie's review not finished (4 corrections applied to MG_TuSun so far); required complete before leaving `writeTests` (6.g). In-game raw keys, fallback text and clipping: `unverified` until `playTests`.
