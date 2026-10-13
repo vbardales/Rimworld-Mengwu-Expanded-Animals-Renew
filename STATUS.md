@@ -19,7 +19,7 @@ tested_on:
 workshop:     3811291533 (0.1.0 prepublished, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
   - defect: Pickle pass 1 (EN/FR) never produced a verdict. The two 2026-09-30 reruns were red (map lacked the InspectTabs companion, fixed 2026-10-02) and the two 2026-10-02 tickets (20261002-204744-460-bfdd, -614-1f76) ended `invalid` at the dispatcher (empty owner and mod, log gone). No pass-1 ticket is queued. Resubmit at playTests only (AUDIT.md 8.c).
-  - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2) but no Pickle pass mounts the optional mods yet (ANIMALS.md: "avec facultatifs"). Resolve at playTests, as a small ticket.
+  - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle: `Tests/Pickle/wsl-deps.avec-facultatifs.map` and `05-animal-prosthetics.feature` written, not run (7.d). Nocturnal, Dogs mate and Better Crossbreeding scenarios are not written: they need shared Pickle steps (body clock, crossbreeding partner and outcome, mating group) that exist only as local steps in Funny Creatures Renew and A Certain Series; owed to NPT (PickleTools). Run at playTests as a small ticket.
   - unverified: French review by Virginie (4 wording corrections applied to MG_TuSun; review still in progress, TRANSLATIONS.md). translation_fr stays partial; required complete before leaving writeTests (6.g).
   - unverified: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04) have no Pickle coverage and no written N/A (7.e).
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
