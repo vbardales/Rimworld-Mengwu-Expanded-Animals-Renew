@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-workflow_stage: writeTests[0.1.0]
+workflow_stage: playTests[0.1.0]
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -23,7 +23,7 @@ remaining:
   - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
-session:      mengwuexpandedanimals / writeTests[0.1.0]
+session:      mengwuexpandedanimals / playTests[0.1.0]
 updated:      2026-10-13
 protocols_read_sha: b9e70d5f65c63f769ac01131f6873b6055e4face
 ---
@@ -68,3 +68,11 @@ Result: `settings_audit: not_applicable`.
 Decision 2026-10-13 (Virginie): English labels stay faithful to the original author, `Rabbit mantle` (MG_TuSun) and `Mogul Leaping Bunny` (MG_TiaoShu) are kept even though the animals are a Pallas's cat and a jerboa (ATTRIBUTION.md, "The translation"). The descriptions and the French labels name the real animals. Not a defect.
 
 French review 2026-10-13: Virginie validated `FRENCH_REVIEW.md` (revision b5f93d9, corrections applied earlier: 4 wording fixes on MG_TuSun; none new). `translation_fr: complete` (6.g). In-game raw keys, fallback and clipping stay `unverified` until `playTests`.
+
+## writeTests 2026-10-13 (AUDIT.md 7.a-7.h)
+
+- 7.a: `TEST_SCENARIOS.md` (F01-F15), dispositions in `TESTING.md`.
+- 7.b, 7.c: `Tests/Run-Tests.ps1` replayed at 322e882, green (56 keys, 0 errors; patches checked by `Check-Content.ps1`; five regression guards rejected). No new local script.
+- 7.d: Pickle suites written, not run. Passes: sans-facultatifs (01, 02, 03, 08), incompat-source (04), avec-facultatifs (05 ADS 2, 06 Nocturnal, 07 Better Crossbreeding and Dogs mate). Each `@requires` has its map line. Local steps: none; the new steps are PickleTools (DefFieldSteps, ScreenshotStudio), written by NPT, uncommitted and not played at this date.
+- 7.e: no manual test left; F05, F06, F08, F09, F11 not applicable (engine behaviour, `TESTING.md`).
+- 7.g: `localization`, `translation_en`, `translation_fr` complete, French reviewed by Virginie 2026-10-13.
