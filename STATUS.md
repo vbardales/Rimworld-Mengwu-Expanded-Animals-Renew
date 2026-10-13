@@ -25,7 +25,7 @@ remaining:
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
 session:      mengwuexpandedanimals / playTests[1.0.0]
 updated:      2026-10-13
-protocols_read_sha: b9e70d5f65c63f769ac01131f6873b6055e4face
+protocols_read_sha: e1a1959bfa662370492a1414ca2807fdb7782e67
 ---
 
 # Mengwu Expanded - Animals Renew: status
