@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-workflow_stage: settings[0.1.0]
+workflow_stage: localize[0.1.0]
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -22,9 +22,10 @@ remaining:
   - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2) but no Pickle pass mounts the optional mods yet (ANIMALS.md: "avec facultatifs"). Resolve at playTests, as a small ticket.
   - unverified: French review by Virginie (4 wording corrections applied to MG_TuSun; review still in progress, TRANSLATIONS.md). translation_fr stays partial; required complete before leaving writeTests (6.g).
   - unverified: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04) have no Pickle coverage and no written N/A (7.e).
+  - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
   - unverified: working tree holds uncommitted Art/ changes and Mod/About ModIcon.png and Preview.png regenerations (not from this session): not reviewed, not committed.
-session:      mengwuexpandedanimals / settings[0.1.0]
+session:      mengwuexpandedanimals / localize[0.1.0]
 updated:      2026-10-13
 protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
@@ -49,3 +50,11 @@ Dependencies: none (Core only, no DLC reference, no LoadFolders). Optional, all 
 - Dogs mate: MG_Horse joins group Horse. Other three: no group fits (no documented hybrid; joining Squirrel would alter the vanilla squirrel).
 - Better Crossbreeding: MG_Horse <-> Horse, Maternal both ways. Other three: not a variety of a vanilla animal.
 Checked: XPath of every patch resolves on Core + mod defs + each mod's own files (.NET XPath 1.0); files well-formed. In-game proof pending (see remaining).
+
+## Settings audit 2026-10-13 (AUDIT.md 5.a-5.g)
+
+Result: `settings_audit: not_applicable`.
+- Inventory: no C# (no `Source/`, no assembly, no `.csproj`), no `ModSettings`, no `MainButtonDef`, no settings keys in `Languages/`, no inherited or optional-integration setting (the four patches in `Mod/Patches/` only add defNames to other mods' lists). Searched `Mod/` for `MainButtonDef`, `ModSettings`, `settings` in XML: no match.
+- Decision: content-only mod, four animals with fixed stats. No concrete player need for an option; none invented.
+- Contract: no entry under Mod options, no MainButtons shortcut, so no empty page and no shortcut (5.b). The absence of C# is not the proof; the search above is.
+- In-game confirmation (Mod options list shows no entry for this mod): `unverified`, joins the `playTests` run.
