@@ -66,3 +66,5 @@ Result: `settings_audit: not_applicable`.
 - French agreement: names and descriptions are not pawn-bound, no gendered template needed. Reading of every phrase for agreement stays with Virginie's review.
 - `FRENCH_REVIEW.md` regenerated with `scripts/Make-FrenchReview.ps1` (revision a78c364).
 - `translation_fr: partial`: Virginie's review not finished (4 corrections applied to MG_TuSun so far); required complete before leaving `writeTests` (6.g). In-game raw keys, fallback text and clipping: `unverified` until `playTests`.
+
+Decision 2026-10-13 (Virginie): English labels stay faithful to the original author, `Rabbit mantle` (MG_TuSun) and `Mogul Leaping Bunny` (MG_TiaoShu) are kept even though the animals are a Pallas's cat and a jerboa (ATTRIBUTION.md, "The translation"). The descriptions and the French labels name the real animals. Not a defect.
