@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Better Crossbreeding (DizzyEevee.BetterCrossbreeding, Workshop 3520675842).
+
+  Which animals may mate is decided by vanilla, by the MALE only: JobGiver_Mate looks for a fertile female of the
+  male's own def, then of each def in the male's own <race><canCrossBreedWith>. What is born is decided by the mod:
+  it reads a DZY.CrossBreeding.Extension on the MOTHER's PawnKindDef, whose <outcomes> are keyed by the father's
+  kind (Maternal, Paternal, Random, Other). A pair needs the list on the male's race AND the extension on the
+  mother's kind, in both directions.
+
+  THE CLASS NAME. The mod's own Example writes DZY.Crossbreeding.Extension (lower-case b). The compiled assembly
+  declares DZY.CrossBreeding.Extension (capital B). This file uses the assembly's spelling.
+
+  WHAT THIS FILE DECIDES. MG_Horse <-> Horse only: MG_Horse is a horse breed ("a breed of horse bred by the Mengwu
+  tribe"), so the two interbreed and the foal is the mother's kind (Maternal). The other three animals are not
+  paired: the Pallas's cat, the jerboa and the marmot are not described as a variety of a vanilla animal. Every
+  pair has one animal of this mod, so no pairing between two vanilla animals is created.
+
+  A vanilla animal is patched only to add its new partner. Each list is created if the race has none and appended
+  to if another mod already made one: a plain Add on <race> would write a second <canCrossBreedWith> and silently
+  replace the first. The extension is created only when the kind does not carry one already.
+
+  Everything is inside one PatchOperationFindMod on the mod's display name, so without Better Crossbreeding this
+  file changes nothing and logs nothing. No load order is asked.
+-->
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Better Crossbreeding</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Who may mate: MG_Horse seeks horses -->
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/ThingDef[defName="MG_Horse"]/race/canCrossBreedWith</xpath>
+					<match Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="MG_Horse"]/race/canCrossBreedWith</xpath>
+						<value>
+							<li>Horse</li>
+						</value>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="MG_Horse"]/race</xpath>
+						<value>
+							<canCrossBreedWith>
+								<li>Horse</li>
+							</canCrossBreedWith>
+						</value>
+					</nomatch>
+				</li>
+
+				<!-- Horse seeks MG_Horse -->
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/ThingDef[defName="Horse"]/race/canCrossBreedWith</xpath>
+					<match Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Horse"]/race/canCrossBreedWith</xpath>
+						<value>
+							<li>MG_Horse</li>
+						</value>
+					</match>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Horse"]/race</xpath>
+						<value>
+							<canCrossBreedWith>
+								<li>MG_Horse</li>
+							</canCrossBreedWith>
+						</value>
+					</nomatch>
+				</li>
+
+				<!-- What is born: the extension on the MOTHER's kind, keyed by the father -->
+
+				<!-- MG_Horse mother -->
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/PawnKindDef[defName="MG_Horse"]/modExtensions/li[@Class="DZY.CrossBreeding.Extension"]</xpath>
+					<nomatch Class="PatchOperationAddModExtension">
+						<xpath>Defs/PawnKindDef[defName="MG_Horse"]</xpath>
+						<value>
+							<li Class="DZY.CrossBreeding.Extension">
+								<outcomes></outcomes>
+							</li>
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/PawnKindDef[defName="MG_Horse"]/modExtensions/li[@Class="DZY.CrossBreeding.Extension"]/outcomes</xpath>
+					<value>
+						<Horse>
+							<Maternal />
+						</Horse>
+					</value>
+				</li>
+
+				<!-- Horse mother -->
+				<li Class="PatchOperationConditional">
+					<xpath>Defs/PawnKindDef[defName="Horse"]/modExtensions/li[@Class="DZY.CrossBreeding.Extension"]</xpath>
+					<nomatch Class="PatchOperationAddModExtension">
+						<xpath>Defs/PawnKindDef[defName="Horse"]</xpath>
+						<value>
+							<li Class="DZY.CrossBreeding.Extension">
+								<outcomes></outcomes>
+							</li>
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/PawnKindDef[defName="Horse"]/modExtensions/li[@Class="DZY.CrossBreeding.Extension"]/outcomes</xpath>
+					<value>
+						<MG_Horse>
+							<Maternal />
+						</MG_Horse>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

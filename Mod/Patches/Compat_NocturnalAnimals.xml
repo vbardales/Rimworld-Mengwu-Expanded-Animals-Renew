@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [XND] Nocturnal Animals (Continued) (Mlie.XNDNocturnalAnimals, Workshop 2269731409).
+
+  That mod gives an animal a body clock through a mod extension on its race's ThingDef: Diurnal (the vanilla
+  behaviour, and what an animal without the extension gets), Nocturnal, Crepuscular or Cathemeral. It deduces
+  nothing from a vanilla field: it hand-lists defNames in its own 1.6/Patches/Core/*.xml (read 2026-10-13), so an
+  animal it does not name stays diurnal.
+
+  MG_TuSun (Pallas's cat, predator, body size 0.75) follows Lynx, the mod's wild small cat (body size 0.6):
+  Nocturnal. Cat is not listed; it is a domestic cat, not a wild hunter.
+
+  MG_TiaoShu (jerboa, small herbivorous rodent, body size 0.3) follows Chinchilla (herbivore, body size 0.35):
+  Crepuscular. Rat is Nocturnal but is a pest omnivore.
+
+  MG_Horse gets nothing: the mod does not list Horse, so a horse is diurnal, and this one is a horse breed.
+  MG_TuBoShu (marmot) gets nothing: it is a ground squirrel, and the mod does not list Squirrel.
+
+  Only applied when that mod is active; without it this file changes nothing and logs nothing.
+  PatchOperationFindMod matches the mod's display name. No load order is asked: the extension is an XML node
+  parsed after every assembly is loaded.
+-->
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[XND] Nocturnal Animals (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="MG_TuSun"]</xpath>
+					<value>
+						<li Class="NocturnalAnimals.ExtendedRaceProperties">
+							<bodyClock>Nocturnal</bodyClock>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="MG_TiaoShu"]</xpath>
+					<value>
+						<li Class="NocturnalAnimals.ExtendedRaceProperties">
+							<bodyClock>Crepuscular</bodyClock>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

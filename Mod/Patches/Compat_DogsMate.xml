@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dogs mate (Continued) (Mlie.DogsMate, Workshop 2441132298, after Revolus' original).
+
+  That mod lets animals of one group mate: a Revolus.DogsMate.AnimalGroupDef whose pawnKinds list names the
+  PawnKindDefs that may cross. It deduces nothing: an animal no group names cannot cross.
+
+  MG_Horse joins the group Horse, where the mod puts the horse (1.6/Defs/CompatibleSpecies/Mammalia.xml, read
+  2026-10-13): it is a horse breed, so it follows its analogue.
+
+  The other three are not added, on purpose:
+    - MG_TuSun (Pallas's cat) and the group Cat (Cat, Lynx): no domestic-cat hybrid is documented for Otocolobus.
+    - MG_TiaoShu (jerboa, family Dipodidae): no group fits; the groups Squirrel, Rat and GuineaPig hold the
+      vanilla animal of that family only.
+    - MG_TuBoShu (marmot): a ground squirrel, but joining the group Squirrel would let it cross with the vanilla
+      squirrel, which changes a vanilla animal for no biological reason.
+
+  Only applied when that mod is active; without it this file changes nothing and logs nothing.
+  PatchOperationFindMod matches the mod's display name. No load order is asked.
+-->
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Dogs mate (Continued)</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/Revolus.DogsMate.AnimalGroupDef[defName="Horse"]/pawnKinds</xpath>
+			<value>
+				<li>MG_Horse</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
