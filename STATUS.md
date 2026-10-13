@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: partial
+translation_fr: complete
 settings_audit: not_applicable
 mod:          Mengwu Expanded - Animals Renew (unofficial)
 packageId:    nelim.mengwuexpandedanimals
@@ -20,7 +20,6 @@ workshop:     3811291533 (0.1.0 prepublished, private; PublishedFileId.txt commi
 remaining:
   - defect: Pickle pass 1 (EN/FR) never produced a verdict. The two 2026-09-30 reruns were red (map lacked the InspectTabs companion, fixed 2026-10-02) and the two 2026-10-02 tickets (20261002-204744-460-bfdd, -614-1f76) ended `invalid` at the dispatcher (empty owner and mod, log gone). No pass-1 ticket is queued. Resubmit at playTests only (AUDIT.md 8.c).
   - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle: `Tests/Pickle/wsl-deps.avec-facultatifs.map` and `05-animal-prosthetics.feature` written, not run (7.d). Nocturnal, Dogs mate and Better Crossbreeding scenarios are not written: they need shared Pickle steps (body clock, crossbreeding partner and outcome, mating group) that exist only as local steps in Funny Creatures Renew and A Certain Series; owed to NPT (PickleTools). Run at playTests as a small ticket.
-  - unverified: French review by Virginie (4 wording corrections applied to MG_TuSun; review still in progress, TRANSLATIONS.md). translation_fr stays partial; required complete before leaving writeTests (6.g).
   - unverified: juvenile and baby graphics of the four animals (TEST_SCENARIOS.md F04) have no Pickle coverage and no written N/A (7.e).
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
@@ -68,3 +67,5 @@ Result: `settings_audit: not_applicable`.
 - `translation_fr: partial`: Virginie's review not finished (4 corrections applied to MG_TuSun so far); required complete before leaving `writeTests` (6.g). In-game raw keys, fallback text and clipping: `unverified` until `playTests`.
 
 Decision 2026-10-13 (Virginie): English labels stay faithful to the original author, `Rabbit mantle` (MG_TuSun) and `Mogul Leaping Bunny` (MG_TiaoShu) are kept even though the animals are a Pallas's cat and a jerboa (ATTRIBUTION.md, "The translation"). The descriptions and the French labels name the real animals. Not a defect.
+
+French review 2026-10-13: Virginie validated `FRENCH_REVIEW.md` (revision b5f93d9, corrections applied earlier: 4 wording fixes on MG_TuSun; none new). `translation_fr: complete` (6.g). In-game raw keys, fallback and clipping stay `unverified` until `playTests`.
