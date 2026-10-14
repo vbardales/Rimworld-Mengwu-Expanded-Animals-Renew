@@ -18,7 +18,7 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
-  - defect: Pickle pass 1 verdicts: English green 2026-10-13 (15 passed, 0 failed, ticket 20261013-163113-420-7f4d, captures read, docs/runs/pickle.md); French (c56e) and avec-facultatifs (c768) pending. Mod/ and Tests/ stay on b0f72d0 until RUN_DONE.
+  - defect: Pickle pass 1 verdicts: English green 2026-10-13 (15 passed, 0 failed, ticket 7f4d, captures read). French (c56e) red 2026-10-13 on two test faults, fixed in the features at 726b72e (see docs/runs/pickle.md); labels replay f06f pending. avec-facultatifs (c768) pending.
   - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle written, not run (7.d): `Tests/Pickle/wsl-deps.avec-facultatifs.map`, features 05 (ADS 2), 06 (Nocturnal), 07 (Better Crossbreeding). Steps of 06 and 07 come from NPT (DefFieldSteps, built, uncommitted, not played: wait for NPT's next message). Dogs mate scenario added to 07 (NPT step "the pawn kind ... is in the mating group ...", written, not played). Run at playTests as a small ticket.
   - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
