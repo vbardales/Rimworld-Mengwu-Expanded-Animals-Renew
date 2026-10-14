@@ -1,10 +1,11 @@
-# Pass 1 (sans-facultatifs). English. Needs the InspectTabs companion (wsl-deps.sans-facultatifs.map).
+# Pass 1 (sans-facultatifs). English only (@english: it reads English labels; the French run showed the French ones). Needs the InspectTabs companion (wsl-deps.sans-facultatifs.map).
 #
 # Catches a broken ExposeData: the most common way a content mod loses state across a reload,
 # per Pickle's own steps.md. The offline suite cannot see this at all, since it never runs a save.
 
 Feature: The animals survive a save and reload
 
+  @english
   Scenario: a horse and a groundhog keep their identity across a save and reload
     Given the save "test-colony" is loaded
     And I close all dialogs
