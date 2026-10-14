@@ -19,7 +19,7 @@ tested_on:
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
   - defect: Pickle pass 1 verdicts: English green 2026-10-13 (15 passed, 0 failed, ticket 7f4d, captures read). French (c56e) red 2026-10-13 on two test faults, fixed in the features at 726b72e (see docs/runs/pickle.md); labels replay f06f pending. avec-facultatifs (c768) pending.
-  - unverified: the four animal integrations are patched (2026-10-13, Mod/Patches/Compat_*.xml, About.xml loadBefore ADS 2). Pickle written, not run (7.d): `Tests/Pickle/wsl-deps.avec-facultatifs.map`, features 05 (ADS 2), 06 (Nocturnal), 07 (Better Crossbreeding). Steps of 06 and 07 come from NPT (DefFieldSteps, built, uncommitted, not played: wait for NPT's next message). Dogs mate scenario added to 07 (NPT step "the pawn kind ... is in the mating group ...", written, not played). Run at playTests as a small ticket.
+  - unverified: the animal integrations: three guarded patches (ADS 2, Nocturnal, Better Crossbreeding) plus Dogs mate through its own patch. avec-facultatifs first played 2026-10-13 (ticket c768): 9 of 10 passed (ADS 2, Nocturnal, crossbreeding pairs and outcomes, Dogs mate group), 1 failed on a test premise (see docs/runs/pickle.md). Replay of 07 alone needed after the fix; ADS 2 and Nocturnal green.
   - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
   - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
@@ -45,7 +45,7 @@ Next: treat or justify the four integrations (own patch and own Pickle pass wher
 Dependencies: none (Core only, no DLC reference, no LoadFolders). Optional, all guarded, no-op without the mod; defName pairing follows the vanilla analogue in each mod's own files (read 2026-10-13), reasons in the patch headers:
 - ADS 2: MG_Horse and MG_TuSun in Cat1, Cat2, Cat3 (Horse; Cat and Lynx); MG_TiaoShu and MG_TuBoShu in Cat1 only (Squirrel, Rat, Chinchilla). `loadBefore` ADS 2 in About.xml.
 - Nocturnal Animals: MG_TuSun Nocturnal (Lynx), MG_TiaoShu Crepuscular (Chinchilla). MG_Horse and MG_TuBoShu: nothing (Horse and Squirrel unlisted, diurnal).
-- Dogs mate: MG_Horse joins group Horse. Other three: no group fits (no documented hybrid; joining Squirrel would alter the vanilla squirrel).
+- Dogs mate: no patch from this mod. The mod ships its own 1.6/Patches/SZ.MengGu.Expanded.xml, applied because this port keeps the original defNames: MG_Horse in group Horse, MG_TiaoShu in Rat, MG_TuSun and MG_TuBoShu in Cat (found at the first avec-facultatifs play, 2026-10-13; a first Compat_DogsMate.xml written from a search of CompatibleSpecies alone was redundant and removed). Oddity left to the owner: the marmot is in the group Cat, so it can pair with cats.
 - Better Crossbreeding: MG_Horse <-> Horse, Maternal both ways. Other three: not a variety of a vanilla animal.
 Checked: XPath of every patch resolves on Core + mod defs + each mod's own files (.NET XPath 1.0); files well-formed. In-game proof pending (see remaining).
 

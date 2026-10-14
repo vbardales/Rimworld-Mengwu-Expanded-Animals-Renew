@@ -13,7 +13,7 @@ art by Yu Yan and Frolg.
 
 ### Added
 
-- Optional compatibility patches, each guarded and a no-op without its mod: A Dog Said... Animal Prosthetics 2 (surgery categories, `loadBefore`), [XND] Nocturnal Animals (body clocks), Dogs mate (the horse joins the group Horse) and Better Crossbreeding (the horse and the vanilla horse interbreed). Nothing is required.
+- Optional compatibility patches, each guarded and a no-op without its mod: A Dog Said... Animal Prosthetics 2 (surgery categories, `loadBefore`), [XND] Nocturnal Animals (body clocks) and Better Crossbreeding (the horse and the vanilla horse interbreed). Dogs mate needs nothing: it files these animals in its groups by itself. Nothing is required.
 
 - Complete English and French key coverage: 28 entries per language, including attacks, horse meat and the foal label. Original English animal names are retained; descriptions are corrected for clarity.
 

@@ -64,7 +64,7 @@ detail.
 
 ## Optional integrations
 
-Four guarded patches in `Mod/Patches/` add the animals to other mods when those mods are loaded, and do nothing otherwise: A Dog Said... Animal Prosthetics 2, [XND] Nocturnal Animals, Dogs mate and Better Crossbreeding. None is required. The reason for each pairing is in the header of its patch.
+Three guarded patches in `Mod/Patches/` add the animals to other mods when those mods are loaded, and do nothing otherwise: A Dog Said... Animal Prosthetics 2, [XND] Nocturnal Animals and Better Crossbreeding. Dogs mate needs no patch: it ships its own for these animals. None is required. The reason for each pairing is in the header of its patch.
 
 ## Art provenance
 

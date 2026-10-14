@@ -18,9 +18,9 @@ Require ($about.ModMetaData.description.Trim().EndsWith('[url=' + $about.ModMeta
 foreach ($dir in @('Assemblies','Source')) {
     Require (-not (Test-Path (Join-Path $ModPath $dir))) "New $dir content needs an expanded test/dependency audit"
 }
-# Optional integrations (AUDIT.md 4.f): exactly these four patches, each guarded, none a dependency.
+# Optional integrations (AUDIT.md 4.f): exactly these three patches (Dogs mate ships its own for these defNames), each guarded, none a dependency.
 $patchFiles = @(Get-ChildItem (Join-Path $ModPath 'Patches') -Filter '*.xml' | ForEach-Object Name | Sort-Object)
-Require (($patchFiles -join ',') -ceq 'Compat_ADogSaidAnimalProsthetics2.xml,Compat_BetterCrossbreeding.xml,Compat_DogsMate.xml,Compat_NocturnalAnimals.xml') "Unexpected patch set: $($patchFiles -join ',')"
+Require (($patchFiles -join ',') -ceq 'Compat_ADogSaidAnimalProsthetics2.xml,Compat_BetterCrossbreeding.xml,Compat_NocturnalAnimals.xml') "Unexpected patch set: $($patchFiles -join ',')"
 foreach ($name in $patchFiles) {
     $p = [xml](Get-Content (Join-Path $ModPath "Patches/$name") -Raw -Encoding UTF8)
     $ops = @($p.Patch.Operation)

@@ -90,7 +90,7 @@ and the one whose author refuses redistribution.
 
 ## Optional integrations
 
-Four patches in `Patches/` name classes, recipe lists and groups of other mods, whose files were read to write
+Three patches in `Patches/` name classes, recipe lists and groups of other mods, whose files were read to write
 them. None is a dependency; each does nothing without its mod. Thanks to their authors:
 A Dog Said... Animal Prosthetics 2 (SamBucher), [XND] Nocturnal Animals (Continued) (Mlie, after XeoNovaDan),
 Dogs mate (Continued) (Mlie, after Revolus) and Better Crossbreeding (DizzyEevee).
