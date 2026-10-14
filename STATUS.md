@@ -18,7 +18,7 @@ showcase:     Mod/About/Preview.png
 tested_on:
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
-  - defect: Pickle pass 1 verdicts: English green 2026-10-13 (15 passed, 0 failed, ticket 7f4d, captures read). French (c56e) red 2026-10-13 on two test faults, fixed in the features at 726b72e (see docs/runs/pickle.md); labels replay f06f pending. avec-facultatifs (c768) pending.
+  - unverified: Pickle pass 1 is green: English 7f4d (15 passed), French c56e (13 passed, 2 test faults fixed) + f06f (labels, 1 of 1), 2026-10-13/14, captures read (docs/runs/pickle.md). avec-facultatifs: c768 9 of 10, 07 replay 6349 pending.
   - unverified: the animal integrations: three guarded patches (ADS 2, Nocturnal, Better Crossbreeding) plus Dogs mate through its own patch. avec-facultatifs first played 2026-10-13 (ticket c768): 9 of 10 passed (ADS 2, Nocturnal, crossbreeding pairs and outcomes, Dogs mate group), 1 failed on a test premise (see docs/runs/pickle.md). Replay of 07 alone needed after the fix; ADS 2 and Nocturnal green.
   - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
