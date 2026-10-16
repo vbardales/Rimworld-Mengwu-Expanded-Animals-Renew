@@ -1,4 +1,4 @@
-# Mengwu Expanded, the animals — where the content comes from, and what had to be changed
+# Mengwu Expanded, the animals: where the content comes from, and what had to be changed
 
 Everything in this mod is **DiamondJ's** work, with art by **Yu Yan** and **Frolg**: the four
 animals, their textures, and the English labels, which are the author's own translation. This
@@ -28,7 +28,7 @@ search filtered on the 1.6 tag returns nothing for it, and no installed mod decl
 ## The licence, looked for in four places
 
 "None stated" is a verdict, not an absence of checking. A refusal never presents itself as a
-licence, so each place was searched for the refusal rather than for the permission — `prohibit`,
+licence, so each place was searched for the refusal rather than for the permission: `prohibit`,
 `forbid`, `do not redistribute`, `no reupload`, `all rights reserved`, `without permission`, and
 the Japanese and Chinese forms 禁止, 転載, 無断, 二次配布, 不得.
 
@@ -49,8 +49,8 @@ Wildness migrated on all four animals.
 - **`wildness` moved to `<Wildness>` under `statBases`, on all four animals.** It stopped
   being a field of `RaceProperties` in 1.6 and became a StatDef. The old form does not error: nothing
   reads it, and the stat's own default is `-1`, which Core's comment describes as deliberately out of
-  range "so we can catch missing wildness stats on animals". The horse's 0.1 — nearly born tame, and
-  the point of a steppe mount — was doing nothing.
+  range "so we can catch missing wildness stats on animals". The horse's 0.1 (nearly born tame, and
+  the point of a steppe mount) was doing nothing.
 - **The horse's `alternateGraphicChance` (0.8) removed.** The source declared a chance to draw an
   alternate coat with no `alternateGraphics` list to draw from. The roll crashes RimWorld 1.6's pawn
   render tree (`TryGetAlternate` -> `TryRandomElementByWeight` on an empty source), about 80% of the

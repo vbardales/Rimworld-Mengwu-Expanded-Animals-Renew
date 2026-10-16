@@ -4,7 +4,7 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it
 in game.
 
-## [1.0.0] — unreleased
+## [Unreleased]
 
 ModIcon and Preview are installed. Release tagging and Workshop publication remain pending.
 
@@ -21,7 +21,7 @@ art by Yu Yan and Frolg.
 
 - **`wildness` moved to `<Wildness>` under `statBases`, on all four animals.** It stopped
   being a field of `RaceProperties` in 1.6 and became a StatDef. The old form is not an error, it is
-  simply never read, and the stat's default is `-1` — outside the range the game uses, so the horse's
+  simply never read, and the stat's default is `-1`, outside the range the game uses, so the horse's
   0.1, which makes it nearly born tame, was doing nothing.
 
 ### Fixed
@@ -45,7 +45,7 @@ Those five field changes are the entire difference from the original def file. N
 backstories, none of which is here. That is why this mod is named for the animals rather than for the
 mod it comes from.
 
-## [0.1.0] — 2026-10-01
+## [0.1.0] - 2026-10-01
 
 Creation of the publishIdFile. This upload only created the Workshop item (private, as Steam creates
 every item) and its `About/PublishedFileId.txt`. It contains `Mod/` as it stood at commit `198df47`,

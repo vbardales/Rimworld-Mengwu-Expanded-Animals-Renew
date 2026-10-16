@@ -1,4 +1,4 @@
-# Automated validation — 2026-09-13
+# Automated validation, 2026-09-13
 
 **PASS. No in-game tests executed.** Payload revision:
 `72e9266a78b710495a4d9f3437d18dfd17143f17`. Mod/ is unchanged from that commit.

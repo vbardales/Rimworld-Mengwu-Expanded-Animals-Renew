@@ -1,4 +1,4 @@
-# Localization validation — 2026-09-13
+# Localization validation, 2026-09-13
 
 Base revision: 93b2e151b08e1e3ce454e88ea75bf8df58516442 plus local localization and
 metadata changes. Exact checked XML hashes: Localization-files.json.
