@@ -8,7 +8,7 @@ packageId:    nelim.mengwuexpandedanimals
 repo:         Rimworld-Mengwu-Expanded-Animals-Renew
 visibility:   public
 detached:     yes
-workflow_stage: playTests[1.0.0]
+workflow_stage: shootGallery[1.0.0]
 upstream_mod_remotes:
   - N/A
 licence:      silent
@@ -22,9 +22,9 @@ remaining:
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
-session:      mengwuexpandedanimals / playTests[1.0.0]
+session:      mengwuexpandedanimals / shootGallery[1.0.0]
 updated:      2026-10-16
-protocols_read_sha: e1a1959bfa662370492a1414ca2807fdb7782e67
+protocols_read_sha: b9b02ecdf5a3fcdd2730f04c7ae17d771d705275
 ---
 
 # Mengwu Expanded - Animals Renew: status
