@@ -15,16 +15,15 @@ licence:      silent
 licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
 showcase:     Mod/About/Preview.png
-tested_on:
+tested_on:    b0f72d0 .. 3f48336 (Mod/ unchanged but Patches/Compat_DogsMate.xml removed at 3f48336); Pickle EN 7f4d, FR c56e+f06f, avec-facultatifs c768+6349, 2026-10-13/14
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
-  - unverified: Pickle pass 1 is green: English 7f4d (15 passed), French c56e (13 passed, 2 test faults fixed) + f06f (labels, 1 of 1), 2026-10-13/14, captures read (docs/runs/pickle.md). avec-facultatifs: c768 9 of 10, 07 replay 6349 pending.
-  - unverified: the animal integrations: three guarded patches (ADS 2, Nocturnal, Better Crossbreeding) plus Dogs mate through its own patch. avec-facultatifs first played 2026-10-13 (ticket c768): 9 of 10 passed (ADS 2, Nocturnal, crossbreeding pairs and outcomes, Dogs mate group), 1 failed on a test premise (see docs/runs/pickle.md). Replay of 07 alone needed after the fix; ADS 2 and Nocturnal green.
-  - unverified: juvenile and baby graphics (F04): `08-life-stages.feature` written (ScreenshotStudio step "an animal of kind ... at the life stage ..."), not run; captures to read at playTests.
-  - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); check in game at playTests.
-  - unverified: tested criteria (AUDIT.md 8): Pickle pass 1 green EN and FR, @review captures read, pass 2 green (2026-09-29, non-regression). No @wip, no manual test left (TESTING.md).
+  - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
+  - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
+  - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
+  - unverified: code review (8.m): done 2026-10-16, see "Audit replay 2026-10-16"; sha recorded once the tree is committed.
 session:      mengwuexpandedanimals / playTests[1.0.0]
-updated:      2026-10-13
+updated:      2026-10-16
 protocols_read_sha: e1a1959bfa662370492a1414ca2807fdb7782e67
 ---
 
@@ -76,3 +75,16 @@ French review 2026-10-13: Virginie validated `FRENCH_REVIEW.md` (revision b5f93d
 - 7.d: Pickle suites written, not run. Passes: sans-facultatifs (01, 02, 03, 08), incompat-source (04), avec-facultatifs (05 ADS 2, 06 Nocturnal, 07 Better Crossbreeding and Dogs mate). Each `@requires` has its map line. Local steps: none; the new steps are PickleTools (DefFieldSteps, ScreenshotStudio), written by NPT, uncommitted and not played at this date.
 - 7.e: no manual test left; F05, F06, F08, F09, F11 not applicable (engine behaviour, `TESTING.md`).
 - 7.g: `localization`, `translation_en`, `translation_fr` complete, French reviewed by Virginie 2026-10-13.
+
+## Audit replay 2026-10-16 (AUDIT.md 1 to 8, current stage playTests[1.0.0])
+
+Replayed against the protocols at 813dbe9 (AGENTS.md, AUDIT.md, STYLE_RIMWORLD.md, scripts.md, USE_THIS_INSTEAD.md diffs since e1a1959b read).
+- 1 setupRepo: repository, remote, `.gitignore`, `unofficial` notices, `STATUS.md` fields, licence `silent` documented. OK. 1.a (duplicate search of the Workshop): not rerun, `Search-Workshop.sh` takes about five minutes and the mod is already prepublished (3811291533).
+- 2 makeSources: `ModIcon-source.png` and `Preview-source.png` present, derivatives newer than their source (2026-10-12), `0-preview.png` byte copy of `Preview.png`. `Measure-Palette.sh` on `Preview-source.png`: 2 hue families, Vmean 0.399 (rule: at most 3, at least 0.30). ModIcon weight 29 KB. OK. Owner's uncommitted `Art/` work (echo-source.png deleted, echo-preview.png added) not touched; `Art/Preview.config.json` still names `echo.png`.
+- 3 code: no code, no build. CHANGELOG `## [Unreleased]` describes the version (it was wrongly set to `[1.0.0] unreleased`, fixed). OK.
+- 4 declareDependencies: dependencies none, three guarded optional patches, `loadBefore` ADS 2 checked by `sort-load-order.py` (order: this mod, Dogs mate, Better Crossbreeding, Nocturnal, ADS 2, no cycle). `Check-TypeRefs`, `Check-XmlFields`, `Check-Steps` green. 4.f: Dogs mate needs no patch, it ships its own for the original defNames (docs/runs/pickle.md, 2026-10-13).
+- 5 settings: `not_applicable` justified (see Settings audit). OK.
+- 6 localize: green offline, French reviewed by Virginie 2026-10-13, FRENCH_REVIEW regenerated at a committed revision. OK. No em dash left outside `docs/runs/status-journal.md` (history).
+- 7 writeTests: `Tests/Run-Tests.ps1` green at the current tree (56 keys, 0 errors). Local scripts justified in `scripts/LOCAL_SCRIPTS.md` (4 rows, validation left to Audit workflow). OK.
+- 8 playTests: 8.c every pass green (EN, FR, avec-facultatifs, incompat-source unchanged since 2026-09-29); 8.d the 12 adult/baby/juvenile captures read (EN); 8.e no `@wip`; 8.f every `@requires` has its pass and report; 8.i Player.log of the four runs holds no error from this mod (only environment warnings); 8.l evidence minified, two red reruns of 2026-09-29 deleted, runs logged in `docs/runs/pickle.md`, `tested_on` filled. 8.g and 8.k: F01 to F15 dispositions in `TESTING.md`, no manual test left. 8.h not applicable (no settings).
+- 8.m code review of `b3d5ff7..HEAD` under `Mod/` (excluding textures): `Defs/MGAnimal.xml` loses one line (`alternateGraphicChance`, intended); `About.xml` gains `loadBefore`, `incompatibleWith`, unofficial notices, description without a version number; three patches read in full, each guarded, no `MayRequire` on an Operation, XPath validated against Core, the mods' own files and the game; DefInjected EN and FR 28 fields each, `Check-DefInjected` 56 keys 0 errors. No defect found.
