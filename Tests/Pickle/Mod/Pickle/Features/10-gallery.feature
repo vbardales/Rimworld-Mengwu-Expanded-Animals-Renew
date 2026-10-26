@@ -5,8 +5,8 @@
 # STORY: "The steppe comes to the Sanctuary". One day, dawn to night, in the Sanctuary of Nelim (SanctuaryBacklot, the Nelims-tribe save).
 # Nelim, the only colonist (NSB), welcomes a Mengwu horse and its three small companions: arrival (S1), the marmot's mound (S2), the noon
 # nap of the night hunter (S3), the hunt that wakes at dusk (S4), the last latch at night (S5). S1 opens (wide, sets the paddock), S5
-# closes (wide, other gate, other rectangle). One start hour per scene (`I set the hour to N`, photographer's choice, 2026-10-14);
-# weather Clear (set at once, the save keeps the previous one: NPT, 2026-10-27) except S5 (night). Shots: wide S1, S5; medium S3; tight S2, S4.
+# closes (other gate, other rectangle). One start hour per scene (`I set the hour to N`, photographer's choice, 2026-10-14);
+# weather Clear (set at once, the save keeps the previous one: NPT, 2026-10-27) except S5 (night). Frames (cells across): S2 tight 9, S4 tight-medium 12, S1 16 (opens, establishes the paddock), S5 18 (closes), S3 32 (the widest, the hut and its surroundings).
 #
 # NELIM, whole day (continuity, no change of outfit: the day is one): Apparel_Pants dyed rgb (70, 56, 44) first (legs), VAE_Apparel_Jumpsuit dyed
 # rgb (31, 92, 69) deep emerald, VAE_Headgear_Scarf dyed rgb (230, 120, 40) orange accent (NELIM-PROFIL.md, "Quotidien"), hair Roo_HD_Hair_Highpony
@@ -28,13 +28,17 @@
 #
 # SHOTLIST (index, name | place, hour, weather, time | subject, what it says | composition | living | decor | steps, DepMap | type):
 #
-# S1 mengwu-1-dawn-gate | enclosure-south, 07:00, Clear, setup 60 ticks then the horse is spawned and 60 more ticks pass | the Mengwu
-#   horse has arrived and Nelim feeds it: "A steppe horse and a gate left open." | WIDE, rectangle (128,204) to (170,224): fence and gate
-#   foreground, horse off-centre right just inside the gate (159,207), bamboo behind, low sun | horse adult; Nelim at (158,208) facing
-#   east, carries the item Hay; INSTANT: just after she opens the gate, just before she sets the hay down; obtained by
-#   `is forced to haul 1 of the item "Hay"` and a pause after a few ticks, the horse having had 60 ticks to leave its spawn pose | TorchLamp lit at the gate
-#   (warm at dawn), Plant_YellowTallGrass fully grown along the fence, a Hay decor pile one cell ahead of her; all removed after the shot |
-#   steps: StageDecor, rectangle frame, haul, face sequence | story scene, subtitle "The steppe horse has come."
+# S1 mengwu-1-dawn-gate (reworked 2026-10-27 after reading the empty photograph Art/Locations/clean/12-candidate-enclosure-south.jpg of SanctuaryBacklot: the paddock holds about 40 farm animals,
+#   bamboo clumps, a seedling crop and a dozen lit lamps of the fixture, so the scene first EMPTIES it: bare brown soil and fence, then stages its own steppe) |
+#   enclosure-south, 07:00, Clear, 60 ticks of setup, then the horse is spawned and 60 ticks pass | the Mengwu horse waits just inside the south gate and Nelim brings its first hay: "A steppe horse
+#   and a gate left open." | opening image, MEDIUM-WIDE, root size 4.5 centred on (159, 210): x about 151 to 167, z about 205.5 to 214.5; the fence stub and the gate (159, 207) at the bottom
+#   of the frame, the horse right of centre at (162, 210), tufts of steppe grass left, bare soil, low sun; the horse sprite is about 2.1 cells of 16, about 35 px at 268 px | horse adult (MG_Horse)
+#   FACING SOUTH TO THE CAMERA (`"Horse" faces South`: its front view, which S2 repeats for the marmot), looking at Nelim; Nelim comes in through the gate: she stands at (159, 206) facing North,
+#   is forced to haul 1 Hay to (159, 209) and is paused 40 ticks in, mid-stride across the gate cell, hay in her hands; INSTANT: just after she opened the gate, just before she sets the hay down |
+#   the paddock is emptied first (`the sanctuary "enclosure-south" is emptied`, animals removed, `the painted zones are hidden`), then TorchLamp lit at (157, 209), Plant_YellowTallGrass fully
+#   grown at (153, 209), (154, 210), (164, 213), (165, 212), all removed after the shot | steps: emptied, painted zones hidden, `faces South` (NPT), haul, camera root size | story scene,
+#   subtitle "The steppe horse has come."
+#   RISK: the gate geometry is read on a photograph, not on a cell list (the gate cell (159, 207) may be a fence cell that blocks the walk): a blocked cell fails and names itself; move her one cell.
 #
 # S2 mengwu-2-the-mound | water-garden moss bank (earth x 145-156), 09:00, Clear, 60 ticks of setup | the marmot has come out beside its mound of dug earth as Nelim
 #   walks into the frame: "A marmot and its mound of earth." | TIGHT, root size 2.5 centred on (156, 171): x about 151.6 to 160.4, z about 168.5 to 173.5, so the geyser (149 to 150) is out
@@ -61,13 +65,16 @@
 #   story scene, subtitle "Dusk wakes the hunter."
 #   RISK: both animals are small at 268 px (jerboa body 0.3, about 1 cell of 12.4 wide, about 22 px on the thumbnail): the frame is the tightest this place allows without losing Nelim.
 #
-# S5 mengwu-5-night-gate | enclosure-south, west gate (130,219), 21:00 night, Clear, 120 ticks | all four are in for the night: "Everyone is
-#   home; Nelim latches the gate." | WIDE, rectangle (126,210) to (152,226) (not the S1 frame): west gate foreground, horse walking in
-#   from the left, marmot near the egg boxes, jerboa left outside the fence in the grass | horse adult, marmot adult, jerboa adult; Nelim at
-#   the gate facing north, back to the camera, hand-height pose at the latch; INSTANT: just after the last animal is in; obtained by
-#   placing her facing north | TorchLamp and Brazier lit (warm pools at night), the paddock egg boxes as they are | steps: decor lit,
-#   rectangle frame | story scene (closing), subtitle "All four are home."
-#   (not written yet; the pose at the latch and the horse mid-walk have no step: written after S2 to S4 are read)
+# S5 mengwu-5-night-gate (reworked 2026-10-27; the "latch" gesture and the marmot near the egg boxes (they are at the far north-east of the paddock) are dropped: no step closes a gate) |
+#   enclosure-south, west gate (130, 219), 21:00 night, Clear, 60 ticks of setup | the horse has gone in for the night and Nelim walks back to close the gate: "Everyone is home; Nelim
+#   goes to close the gate." | closing image, MEDIUM-WIDE, root size 5 centred on (136, 219): x about 127 to 145, z about 214 to 224, the west fence and the gate on the left, the horse
+#   walking away right of the gate, two small animals asleep on the soil, low warm light; the horse about 2.1 cells of 17.8, about 32 px at 268 px (S1 had a south gate, S5 the west one: another
+#   side of the paddock, another rectangle, another hour) | horse adult spawned at (131, 219) and forced to walk to (140, 219), paused 40 ticks in (about 4.6 cells at 8.6 ticks per cell: at about
+#   (135.6, 219)), seen from behind and the side, facing East; marmot adult asleep at (137, 221) and jerboa adult asleep at (139, 217), each `lies at (x, z) facing South` (the marmot's front view again);
+#   Nelim at (135, 220) facing West is forced to walk to (131, 220) and is paused in the same 40 ticks, mid-stride toward the gate, profile; INSTANT: just after the horse went through, she goes to the
+#   gate | the paddock emptied first, then TorchLamp lit at (131, 218) and (131, 221) flanking the gate and a Brazier lit at (137, 223); all removed after the shot | steps: emptied, painted zones
+#   hidden, `lies at` and forced walks (NPT), camera root size | story scene (closing), subtitle "All four are home."
+#   RISK: the gate cell (130, 219) read on a photograph; the two sleepers need the same ticks as the walks (set before the advance); the cat is absent (out hunting).
 #
 # S6 mengwu-6-info-card | window-backdrop-for-height, any hour | the "i" information card of the Mengwu horse (body size 2.6, pack
 #   animal, 40 years): not scored, interface window cropped laterally, no subtitle | placed after S5 as an appendix.
