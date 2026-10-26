@@ -16,6 +16,7 @@ licence_at:   ATTRIBUTION.md; installed source About.xml checked 2026-09-13
 dependencies: none
 showcase:     Mod/About/Preview.png
 code_review_sha: 8c036caa91d436157d42d630fdfcf4e32e71ef18
+echo_review_sha: 772594ec61e71b77a4b1c42a49ef4665dc6fe680
 tested_on:    b0f72d0 .. 3f48336 (Mod/ unchanged but Patches/Compat_DogsMate.xml removed at 3f48336); Pickle EN 7f4d, FR c56e+f06f, avec-facultatifs c768+6349, 2026-10-13/14
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
@@ -23,8 +24,8 @@ remaining:
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
 session:      mengwuexpandedanimals / shootGallery[1.0.0]
-updated:      2026-10-16
-protocols_read_sha: b9b02ecdf5a3fcdd2730f04c7ae17d771d705275
+updated:      2026-10-26
+protocols_read_sha: 43dd90d4b7873c500347fba1be01275a48d5795b
 ---
 
 # Mengwu Expanded - Animals Renew: status
