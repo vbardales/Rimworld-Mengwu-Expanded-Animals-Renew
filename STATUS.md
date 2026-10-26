@@ -20,7 +20,7 @@ echo_review_sha: 772594ec61e71b77a4b1c42a49ef4665dc6fe680
 tested_on:    b0f72d0 .. 3f48336 (Mod/ unchanged but Patches/Compat_DogsMate.xml removed at 3f48336); Pickle EN 7f4d, FR c56e+f06f, avec-facultatifs c768+6349, 2026-10-13/14
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
-  - open: shotlist written 2026-10-27 (10-gallery.feature header, STATUS "Shotlist"); series 3.8, blocked on three NPT steps (lie down asleep, face a direction, start hunting); no capture ticket before S2 to S4 are at 4 or more. PUBLICATION.md (Gallery table, Gallery subtitles) does not exist yet; write it with the subtitle lines of the shotlist.
+  - open: shotlist written 2026-10-27 (10-gallery.feature header, STATUS "Shotlist"); series 4.1, the three NPT steps exist (not played); next: write scenarios + wsl-deps.gallery.map, small ticket S2 to S4. PUBLICATION.md (Gallery table, Gallery subtitles) does not exist yet; write it with the subtitle lines of the shotlist.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
@@ -98,9 +98,9 @@ Story: "The steppe comes to the Sanctuary", one day, dawn to night, Nelim only (
 | shot | place, hour | a | b | c | d | e | f | g | j | est. | main risk |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | S1 mengwu-1-dawn-gate | enclosure-south, 07:00 | ok | TorchLamp lit, YellowTallGrass, Hay | horse | emerald jumpsuit, orange scarf, Highpony, smile | carries Hay, just before she sets it down | wide rectangle, off-centre horse | one subject, one line | horse readable at 268 px | 4.5 | horse leaves its spawn pose (60 ticks) |
-| S2 mengwu-2-burrow | water-garden bank, 09:00 | ok | Filth_Dirt, Daylily | marmot + baby, front view | same outfit | stops mid-stride, marmot just out | tight 6 cells | ok | marmot reads | 3.5 | `faces` step missing (-1) |
-| S3 mengwu-3-noon-nap | hut, 12:00 | ok | bonsai pot, lit brazier | Pallas's cat asleep | same outfit | steps in softly, about to leave | medium, zoom 9 | ok | cat reads | 3.5 | lie-down step missing (-1); fallback: cut S3 |
-| S4 mengwu-4-dusk-hop | bare-clearing, 18:00 | ok | YellowTallGrass, flowers | jerboa + cat | same outfit | just before the pounce, carries Kibble | tight-medium, zoom 5 | ok | both small, 268 px risky | 3.5 | hunt step missing (-1) |
+| S2 mengwu-2-burrow | water-garden bank, 09:00 | ok | Filth_Dirt, Daylily | marmot + baby, front view | same outfit | stops mid-stride, marmot just out | tight 6 cells | ok | marmot reads | 4 | `faces South` step exists (NPT 2026-10-27, not played) |
+| S3 mengwu-3-noon-nap | hut, 12:00 | ok | bonsai pot, lit brazier | Pallas's cat asleep | same outfit | steps in softly, about to leave | medium, zoom 9 | ok | cat reads | 4 | `lies at (x, z) facing` step exists, not played; ticks must pass before the shot |
+| S4 mengwu-4-dusk-hop | bare-clearing, 18:00 | ok | YellowTallGrass, flowers | jerboa + cat | same outfit | just before the pounce, carries Kibble | tight-medium, zoom 5 | ok | both small, 268 px risky | 4 | `forced into the job "PredatorHunt"` exists, not played; N ticks to tune |
 | S5 mengwu-5-night-gate | enclosure-south west gate, 21:00 | ok | TorchLamp, Brazier lit | horse, marmot, jerboa outside | same outfit | latches the gate, last animal just in | wide, other rectangle | ok | horse reads | 4 | night light |
 
-S6 mengwu-6-info-card (window-backdrop-for-height, interface, no subtitle): not scored. Series k: ok (story, opening S1, closing S5, wide/medium/tight). Series score 3.8 (mean): below 4, so NO capture ticket until NPT answers the three steps (lie down asleep, face a direction, start hunting) and S2, S3, S4 are re-scored at 4 or more. S1 and S5 alone reach 4 or more but a ticket plays the series.
+

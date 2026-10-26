@@ -15,8 +15,7 @@
 # (SanctuaryBacklot/Tests/Pickle/wsl-deps.sanctuary.map), plus nelim.mengwuexpandedanimals (path:MengwuExpandedAnimalsRenew/Mod) and
 # Mlie.XNDNocturnalAnimals 2269731409 (the cat sleeps by day, the jerboa wakes at dusk: the integration is what makes S3 and S4 true).
 #
-# STEPS ASKED OF NPT (via the TM, 2026-10-27): (1) an animal lies down asleep; (2) an animal faces a direction; (3) an animal starts
-# hunting a target (or gets a job). Until answered: S2 (front view), S3 (asleep), S4 (hunt) score 3.5 and are not played.
+# STEPS ANSWERED BY NPT (2026-10-27, commit 1f54109, prefix "Nelim's Pickle Tools: ", map needs ColonistRace): (1) `the animal "Y" lies at (x, z) facing South|North|East|West` (LayDown forceSleep) or `"Y" lies down`, plus `I let N frames pass`; (2) `"Y" faces South` or `the animal "Y" stands at (x, z) facing South`; (3) `the animal "cat" is forced into the job "PredatorHunt" targeting the animal "jerboa"` then let N ticks pass and shoot BEFORE contact. Set the weather first: `the weather is set at once to "Clear"`. Not played: S2, S3, S4 estimated 4 on the plan.
 #
 # SHOTLIST (index, name | place, hour, weather, time | subject, what it says | composition | living | decor | steps, DepMap | type):
 #
