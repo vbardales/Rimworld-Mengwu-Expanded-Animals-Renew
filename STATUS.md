@@ -20,6 +20,7 @@ echo_review_sha: 772594ec61e71b77a4b1c42a49ef4665dc6fe680
 tested_on:    b0f72d0 .. 3f48336 (Mod/ unchanged but Patches/Compat_DogsMate.xml removed at 3f48336); Pickle EN 7f4d, FR c56e+f06f, avec-facultatifs c768+6349, 2026-10-13/14
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
+  - open: shotlist written 2026-10-27 (10-gallery.feature header, STATUS "Shotlist"); series 3.8, blocked on three NPT steps (lie down asleep, face a direction, start hunting); no capture ticket before S2 to S4 are at 4 or more. PUBLICATION.md (Gallery table, Gallery subtitles) does not exist yet; write it with the subtitle lines of the shotlist.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
@@ -89,3 +90,17 @@ Replayed against the protocols at 813dbe9 (AGENTS.md, AUDIT.md, STYLE_RIMWORLD.m
 - 7 writeTests: `Tests/Run-Tests.ps1` green at the current tree (56 keys, 0 errors). Local scripts justified in `scripts/LOCAL_SCRIPTS.md` (4 rows, validation left to Audit workflow). OK.
 - 8 playTests: 8.c every pass green (EN, FR, avec-facultatifs, incompat-source unchanged since 2026-09-29); 8.d the 12 adult/baby/juvenile captures read (EN); 8.e no `@wip`; 8.f every `@requires` has its pass and report; 8.i Player.log of the four runs holds no error from this mod (only environment warnings); 8.l evidence minified, two red reruns of 2026-09-29 deleted, runs logged in `docs/runs/pickle.md`, `tested_on` filled. 8.g and 8.k: F01 to F15 dispositions in `TESTING.md`, no manual test left. 8.h not applicable (no settings).
 - 8.m code review of `b3d5ff7..HEAD` under `Mod/` (excluding textures): `Defs/MGAnimal.xml` loses one line (`alternateGraphicChance`, intended); `About.xml` gains `loadBefore`, `incompatibleWith`, unofficial notices, description without a version number; three patches read in full, each guarded, no `MayRequire` on an Operation, XPath validated against Core, the mods' own files and the game; DefInjected EN and FR 28 fields each, `Check-DefInjected` 56 keys 0 errors. No defect found.
+
+## Shotlist 2026-10-27 (shootGallery, `write-shotlist`; full lines in `Tests/Pickle/Mod/Pickle/Features/10-gallery.feature` header)
+
+Story: "The steppe comes to the Sanctuary", one day, dawn to night, Nelim only (NSB colon), one outfit all day (VAE jumpsuit deep emerald, orange scarf, Highpony, own face). Director pass: Opus sub-agent, one call. Kept: instants and how each gesture is obtained, hay and grass in place of cup and berries, S2 tight 6-cell rectangle with Filth_Dirt around the burrow and front view moved to S2, S4 "just before the pounce", S5 other gate and other rectangle, nocturnal beat tied to the Nocturnal Animals integration, S3 fallback (cut, nocturnal beat moves to S5), S6 as appendix. Not kept: none refused.
+
+| shot | place, hour | a | b | c | d | e | f | g | j | est. | main risk |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| S1 mengwu-1-dawn-gate | enclosure-south, 07:00 | ok | TorchLamp lit, YellowTallGrass, Hay | horse | emerald jumpsuit, orange scarf, Highpony, smile | carries Hay, just before she sets it down | wide rectangle, off-centre horse | one subject, one line | horse readable at 268 px | 4.5 | horse leaves its spawn pose (60 ticks) |
+| S2 mengwu-2-burrow | water-garden bank, 09:00 | ok | Filth_Dirt, Daylily | marmot + baby, front view | same outfit | stops mid-stride, marmot just out | tight 6 cells | ok | marmot reads | 3.5 | `faces` step missing (-1) |
+| S3 mengwu-3-noon-nap | hut, 12:00 | ok | bonsai pot, lit brazier | Pallas's cat asleep | same outfit | steps in softly, about to leave | medium, zoom 9 | ok | cat reads | 3.5 | lie-down step missing (-1); fallback: cut S3 |
+| S4 mengwu-4-dusk-hop | bare-clearing, 18:00 | ok | YellowTallGrass, flowers | jerboa + cat | same outfit | just before the pounce, carries Kibble | tight-medium, zoom 5 | ok | both small, 268 px risky | 3.5 | hunt step missing (-1) |
+| S5 mengwu-5-night-gate | enclosure-south west gate, 21:00 | ok | TorchLamp, Brazier lit | horse, marmot, jerboa outside | same outfit | latches the gate, last animal just in | wide, other rectangle | ok | horse reads | 4 | night light |
+
+S6 mengwu-6-info-card (window-backdrop-for-height, interface, no subtitle): not scored. Series k: ok (story, opening S1, closing S5, wide/medium/tight). Series score 3.8 (mean): below 4, so NO capture ticket until NPT answers the three steps (lie down asleep, face a direction, start hunting) and S2, S3, S4 are re-scored at 4 or more. S1 and S5 alone reach 4 or more but a ticket plays the series.
