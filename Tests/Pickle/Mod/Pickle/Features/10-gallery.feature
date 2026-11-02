@@ -26,6 +26,13 @@
 # (149, 173)"; GALLERY-PROPS: "steam geyser at (150, 173)"; AlphaMythologyRenew rework 4: "a steam geyser stands at (149, 173)"). CreaturesOfKi's framing rule: every pond frame starts
 # at x 152 or more. S2 therefore stages its own mound of dug earth (Filth_Dirt) on the moss bank at x 154 to 156 and the marmot sits beside it.
 #
+# REWORK 2026-11-02 after ticket 20261027-003723-152-2041 (red, captures refused; the end-of-scenario `no warnings from mod` step is dropped, Pickle core's buffer rolls out on long scenarios):
+# S2 frames (155, 171) so Nelim, who is at about x 152 after her 26 ticks, is inside the frame (she was out of it at (156, 171)). S3: the cell (139, 72) holds the hut's Table2x2c, so the pot moves
+# to (139, 75), the brazier to (146, 74), the cat lies at (144, 74) (the hut's east chair stands near (141, 72)), Nelim walks (143, 70) to (143, 73) in the free column east of the table, the frame is
+# (143, 73) at zoom 3 (the cat about 30 px at 268), and the hut's animals are KEPT OUT (per-frame) instead of removed once (two creatures stayed in the first capture). S4: Nelim stands at (191, 152) and
+# hauls to (193, 153), the frame is (194, 151) at zoom 3.5, so she is mid-frame instead of on the edge (NPT: a frame at zoom 4 is about 14 cells wide, the camera only moves). Cell positions of S3 were read on
+# the default-camera capture (about 100 px per cell), not on a cell list. Open from the capture: the scarf drawn detached from Nelim and a red mote beside her (S4), to look at again once she is mid-frame.
+#
 # SHOTLIST (index, name | place, hour, weather, time | subject, what it says | composition | living | decor | steps, DepMap | type):
 #
 # S1 mengwu-1-dawn-gate (reworked 2026-10-27 after reading the empty photograph Art/Locations/clean/12-candidate-enclosure-south.jpg of SanctuaryBacklot: the paddock holds about 40 farm animals,
@@ -119,7 +126,7 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: an animal of kind "MG_TuBoShu" named "Pup" is spawned at (155, 172) at the life stage "AnimalBaby"
     And Nelim's Pickle Tools: "Marmot" faces South
     And Nelim's Pickle Tools: "Pup" faces South
-    When Nelim's Pickle Tools: I frame the cell (156, 171) at zoom 2.5
+    When Nelim's Pickle Tools: I frame the cell (155, 171) at zoom 2.5
     And Nelim's Pickle Tools: the camera root size is set to 2.5
     And Nelim's Pickle Tools: I let 10 frames pass
     And Nelim's Pickle Tools: studio presentation mode is enabled
@@ -139,12 +146,12 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: I let 60 ticks pass
     And game speed is paused
     And Nelim's Sanctuary: I am at the sanctuary "hut"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "hut"
-    And Nelim's Pickle Tools: I place the decor "PlantPot_Bonsai" at (139, 72)
-    And Nelim's Pickle Tools: I place the decor "Brazier" at (143, 73)
-    And Nelim's Pickle Tools: the decor "Brazier" at (143, 73) is lit
+    And Nelim's Sanctuary: the animals are kept out of the sanctuary "hut"
+    And Nelim's Pickle Tools: I place the decor "PlantPot_Bonsai" at (139, 75)
+    And Nelim's Pickle Tools: I place the decor "Brazier" at (146, 74)
+    And Nelim's Pickle Tools: the decor "Brazier" at (146, 74) is lit
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
-    And Nelim's Pickle Tools: "Nelim" stands at (140, 69) facing North
+    And Nelim's Pickle Tools: "Nelim" stands at (143, 70) facing North
     And Nelim's Pickle Tools: "Nelim" body type is Female
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (46, 34, 28)
@@ -152,12 +159,12 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Apparel_Jumpsuit" dyed rgb (31, 92, 69)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Headgear_Scarf" dyed rgb (230, 120, 40)
     And Nelim's Pickle Tools: I let 120 ticks pass
-    And Nelim's Pickle Tools: an adult animal of kind "MG_TuSun" named "Mantle" is spawned at (141, 73)
-    And Nelim's Pickle Tools: the animal "Mantle" lies at (141, 73) facing South
-    And Nelim's Pickle Tools: "Nelim" stands at (140, 69) facing North
-    And Nelim's Pickle Tools: "Nelim" is forced to walk to (140, 74)
+    And Nelim's Pickle Tools: an adult animal of kind "MG_TuSun" named "Mantle" is spawned at (144, 74)
+    And Nelim's Pickle Tools: the animal "Mantle" lies at (144, 74) facing South
+    And Nelim's Pickle Tools: "Nelim" stands at (143, 70) facing North
+    And Nelim's Pickle Tools: "Nelim" is forced to walk to (143, 73)
     And Nelim's Pickle Tools: I advance the paused game by exactly 40 ticks
-    When Nelim's Pickle Tools: I frame the cell (141, 72) at zoom 9
+    When Nelim's Pickle Tools: I frame the cell (143, 73) at zoom 3
     And Nelim's Pickle Tools: I let 10 frames pass
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And Nelim's Pickle Tools: "Nelim" face is held neutral
@@ -183,7 +190,7 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: the plants from (194, 151) to (195, 152) are fully grown
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (190, 150) fully grown
     And Nelim's Pickle Tools: the temperature of the map is 20 degrees
-    And Nelim's Pickle Tools: "Nelim" stands at (189, 152) facing East
+    And Nelim's Pickle Tools: "Nelim" stands at (191, 152) facing East
     And Nelim's Pickle Tools: "Nelim" body type is Female
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Pickle Tools: "Nelim" hair colour is rgb (46, 34, 28)
@@ -194,11 +201,11 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: an adult animal of kind "MG_TiaoShu" named "Hop" is spawned at (198, 151)
     And Nelim's Pickle Tools: an adult animal of kind "MG_TuSun" named "Mantle" is spawned at (193, 151)
     And Nelim's Pickle Tools: the animal "Mantle" is forced into the job "PredatorHunt" targeting the animal "Hop"
-    And Nelim's Pickle Tools: "Nelim" stands at (189, 152) facing East
-    And Nelim's Pickle Tools: "Nelim" is forced to haul 1 of the item "Kibble" to (192, 153)
+    And Nelim's Pickle Tools: "Nelim" stands at (191, 152) facing East
+    And Nelim's Pickle Tools: "Nelim" is forced to haul 1 of the item "Kibble" to (193, 153)
     And Nelim's Pickle Tools: I advance the paused game by exactly 30 ticks
-    When Nelim's Pickle Tools: I frame the cell (195, 151) at zoom 4
-    And Nelim's Pickle Tools: the camera root size is set to 4
+    When Nelim's Pickle Tools: I frame the cell (194, 151) at zoom 3.5
+    And Nelim's Pickle Tools: the camera root size is set to 3.5
     And Nelim's Pickle Tools: I let 10 frames pass
     And Nelim's Pickle Tools: studio presentation mode is enabled
     And Nelim's Pickle Tools: "Nelim" face is held neutral
