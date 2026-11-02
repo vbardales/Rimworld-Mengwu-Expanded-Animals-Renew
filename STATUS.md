@@ -20,14 +20,14 @@ echo_review_sha: 772594ec61e71b77a4b1c42a49ef4665dc6fe680
 tested_on:    b0f72d0 .. 3f48336 (Mod/ unchanged but Patches/Compat_DogsMate.xml removed at 3f48336); Pickle EN 7f4d, FR c56e+f06f, avec-facultatifs c768+6349, 2026-10-13/14
 workshop:     3811291533 (0.1.0 prepublished; target version now 1.0.0, owner decision 2026-10-13, private; PublishedFileId.txt committed ef17ade, 2026-10-02)
 remaining:
-  - open: gallery ticket 20261027-003723-152-2041 queued (diagnostic S2 to S4 of 10-gallery.feature, commit 92e5e93, -DepMap wsl-deps.gallery.map, results in Tests/Pickle/Inbox/gallery-s2-s4); at RUN_DONE read summary.json, junit.xml and every capture (verdict accept/refuse next to the estimate), send NPT the failure text of any red step (faces South, lies at, PredatorHunt, forced walk/haul: NPT commit 1f54109, not played), tune ticks 26/40/30; then write S1 and S5 scenarios (shotlist reworked 02e3f3b, cells of the gates read on a photo), S6 info card, PUBLICATION.md (Gallery table and subtitles; does not exist yet), subtitles with Add-Subtitle.ps1 after acceptance and reindex; series 4.6 on paper.
+  - open: gallery ticket 20261027-003723-152-2041 done red 2026-11-02 (exit 5, 0/3; evidence Tests/Pickle/Inbox/gallery-s2-s4, kept until S2 to S4 accepted). S2 and S4 fail on the last step `no warnings from mod` ("162 warning(s) rolled out of the buffer since this scenario armed", NPT to fix); S3 fails at `I place the decor "PlantPot_Bonsai" at (139, 72)`: cell holds Table2x2c (move the pot). Captures, verdict refuse: S2 marmot and baby read well on the mound (front view ok) but Nelim not in frame; S3 step11 shows the hut with no cat and two blue glows, no shot; S4 cat seen from behind, jerboa about 570 px away, Nelim cropped at the left edge with the scarf drawn detached, no kibble, no pounce. Next: send NPT the two failure texts (via TM), fix the S3 cell, tune Nelim position and ticks, replay S2 to S4 as a small ticket; then write S1 and S5 scenarios (shotlist reworked 02e3f3b, cells of the gates read on a photo), S6 info card, PUBLICATION.md (Gallery table and subtitles; does not exist yet), subtitles with Add-Subtitle.ps1 after acceptance and reindex; series 4.6 on paper.
   - open: echo_review_sha (772594e) stale: echo-concept.png and Preview.config.json changed after it (echo mode opaque-lineart, preSized false); re-validate with the owner at mountPreview.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
 session:      mengwuexpandedanimals / shootGallery[1.0.0]
-updated:      2026-10-26
-protocols_read_sha: 43dd90d4b7873c500347fba1be01275a48d5795b
+updated:      2026-11-02
+protocols_read_sha: 6579ee3b29ca236e0709dc890255b9d1595e20da
 ---
 
 # Mengwu Expanded - Animals Renew: status
