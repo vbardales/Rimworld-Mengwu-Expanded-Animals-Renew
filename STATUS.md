@@ -24,7 +24,8 @@ remaining:
   - open: echo_review_sha (772594e) stale: echo-concept.png and Preview.config.json changed after it (echo mode opaque-lineart, preSized false); re-validate with the owner at mountPreview.
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
-  - unverified: RimWorld 1.7 pass not run (tested_1_7 absent); follows the green 1.6 playTests, English only (AUDIT.md, "Passe 1.7").
+  - unverified: RimWorld 1.7 pass not recorded (tested_1_7 absent); evidence folders p17-mengwu-01-defs (1/1 passed), p17-mengwu-02-visuals (5/6, one failed) and an empty p17-mengwu-02-visuals-fr sit in Tests/Pickle/Evidence with no line in docs/runs: read them, record tested_1_7 and the run line, or replay (AUDIT.md, "Passe 1.7"; English only).
+  - open: TESTING.md pass table, row "Without optional mods", still says "Not green ... replay pending" while STATUS tested_on records EN and FR green 2026-10-13/14: refresh the row from the run lines. Scenario text lives in both TESTING.md (root) and Tests/TEST_SCENARIOS.md: STYLE_RIMWORLD.md allows one place only, Audit session to rule (Tests/ untouched by replay-audit).
 session:      mengwuexpandedanimals / shootGallery[1.0.0]
 updated:      2026-11-02
 protocols_read_sha: 6579ee3b29ca236e0709dc890255b9d1595e20da
