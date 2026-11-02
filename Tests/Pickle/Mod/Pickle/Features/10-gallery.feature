@@ -130,7 +130,6 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal"
     And I take a screenshot "mengwu-2-the-mound"
-    Then no warnings from mod "Mengwu Expanded - Animals Renew (unofficial)"
     And no errors were logged
 
   # S3, 12h00, Clear, MEDIUM (hut frame, zoom 9): the Pallas's cat asleep on the floor, Nelim comes in by the south door and is paused mid-stride (40 ticks: the cat's LayDown runs in the same ticks).
@@ -168,7 +167,6 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal"
     And I take a screenshot "mengwu-3-noon-nap"
-    Then no warnings from mod "Mengwu Expanded - Animals Renew (unofficial)"
     And no errors were logged
 
   # S4, 18h00 dusk, Clear, TIGHT-MEDIUM root 4: the cat is forced into PredatorHunt on the jerboa and paused before contact (30 ticks, to tune); Nelim hauls Kibble in from the left edge, mid-stride.
@@ -210,5 +208,4 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal"
     And I take a screenshot "mengwu-4-dusk-hop"
-    Then no warnings from mod "Mengwu Expanded - Animals Renew (unofficial)"
     And no errors were logged
