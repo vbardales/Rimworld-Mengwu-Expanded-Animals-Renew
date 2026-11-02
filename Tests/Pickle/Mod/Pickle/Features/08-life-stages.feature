@@ -1,4 +1,4 @@
-# Pass 1 (sans-facultatifs). The baby and juvenile graphics of the four animals (TEST_SCENARIOS.md F04). The adult
+# Pass 1 (sans-facultatifs). The baby and juvenile graphics of the four animals (TESTING.md F04). The adult
 # graphics are in 02-visuals.feature. Each animal is spawned at the named life stage through the ScreenshotStudio
 # step (package nelim.pickletools.screenshotstudio, staged by the map), then photographed.
 #

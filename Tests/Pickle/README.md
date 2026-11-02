@@ -79,7 +79,7 @@ Per `AUDIT.md`, "On ne teste pas le jeu": the engine's own systems are not this 
 responsibility, only what it declares. The mod's role in each of these is a def field or stat,
 already covered offline; the dynamic behaviour is the game's.
 
-- **Taming and training outcomes** (`TEST_SCENARIOS.md` F05): the RNG and the AI job are the
+- **Taming and training outcomes** (`TESTING.md` F05): the RNG and the AI job are the
   game's. The mod's role (the `Wildness` stat and the trainability class) is a `raw stat`/field
   read, offline.
 - **Feeding and predation** (F06): diet compatibility is a `foodType` flag, offline. Whether a

@@ -34,8 +34,8 @@ Reference game: `1.6.4871 rev590`. Final combined runner exited **0**.
 
 ## Functional scenarios and applicability
 
-[TEST_SCENARIOS.md](../TEST_SCENARIOS.md) defines 15 future scenarios with preconditions,
-actions, expected results and evidence requirements. Every scenario is **NOT RUN**.
+[TESTING.md](../TESTING.md) defines 15 scenarios (F01 to F15) with preconditions,
+actions, expected results and their disposition. Pickle results: `Docs/runs/pickle.md`.
 They cover Core-only startup, source conflict, four animals and directional/life-stage
 graphics, taming/training, feeding/predation, attack labels, packing, reproduction,
 corpses/products, natural biome populations, EN/FR UI, settings absence, new/existing

@@ -25,7 +25,6 @@ remaining:
   - unverified: Mod options list shows no entry for this mod (settings_audit not_applicable, 5.b); sources show no page and no shortcut, in-game confirmation left to the gallery session or the owner.
   - unverified: Dogs mate files the marmot (MG_TuBoShu) in its group Cat, through the mod's own patch for the original defNames; left as the author made it, owner may want it removed.
   - unverified: RimWorld 1.7 pass not recorded (tested_1_7 absent); evidence folders p17-mengwu-01-defs (1/1 passed), p17-mengwu-02-visuals (5/6, one failed) and an empty p17-mengwu-02-visuals-fr sit in Tests/Pickle/Evidence with no line in docs/runs: read them, record tested_1_7 and the run line, or replay (AUDIT.md, "Passe 1.7"; English only).
-  - open: TESTING.md pass table, row "Without optional mods", still says "Not green ... replay pending" while STATUS tested_on records EN and FR green 2026-10-13/14: refresh the row from the run lines. Scenario text lives in both TESTING.md (root) and Tests/TEST_SCENARIOS.md: STYLE_RIMWORLD.md allows one place only, Audit session to rule (Tests/ untouched by replay-audit).
 session:      mengwuexpandedanimals / shootGallery[1.0.0]
 updated:      2026-11-02
 protocols_read_sha: 6579ee3b29ca236e0709dc890255b9d1595e20da
@@ -74,7 +73,7 @@ French review 2026-10-13: Virginie validated `FRENCH_REVIEW.md` (revision b5f93d
 
 ## writeTests 2026-10-13 (AUDIT.md 7.a-7.h)
 
-- 7.a: `TEST_SCENARIOS.md` (F01-F15), dispositions in `TESTING.md`.
+- 7.a: `TESTING.md` (F01-F15 with dispositions; merged 2026-11-02 from `Tests/TEST_SCENARIOS.md`, removed).
 - 7.b, 7.c: `Tests/Run-Tests.ps1` replayed at 322e882, green (56 keys, 0 errors; patches checked by `Check-Content.ps1`; five regression guards rejected). No new local script.
 - 7.d: Pickle suites written, not run. Passes: sans-facultatifs (01, 02, 03, 08), incompat-source (04), avec-facultatifs (05 ADS 2, 06 Nocturnal, 07 Better Crossbreeding and Dogs mate). Each `@requires` has its map line. Local steps: none; the new steps are PickleTools (DefFieldSteps, ScreenshotStudio), written by NPT, uncommitted and not played at this date.
 - 7.e: no manual test left; F05, F06, F08, F09, F11 not applicable (engine behaviour, `TESTING.md`).
