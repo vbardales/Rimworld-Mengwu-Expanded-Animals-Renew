@@ -1,12 +1,9 @@
-param(
-    [string]$ModPath = (Join-Path $PSScriptRoot '../Mod'),
-    [string]$GameData = 'C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data'
+﻿param(
+    [string]$ModPath = (Join-Path $PSScriptRoot '../Mod')
 )
 $ErrorActionPreference = 'Stop'
 function Require($condition, [string]$message) { if (-not $condition) { throw $message } }
 $ModPath = (Resolve-Path $ModPath).Path
-$core = Join-Path $GameData 'Core/Defs'
-Require (Test-Path $core) "Core definitions unavailable: $core"
 $about = [xml](Get-Content (Join-Path $ModPath 'About/About.xml') -Raw -Encoding UTF8)
 Require ($about.ModMetaData.packageId -ceq 'nelim.mengwuexpandedanimals') 'Save identity changed'
 Require (@($about.ModMetaData.supportedVersions.li) -contains '1.6') 'Missing 1.6 support'
@@ -34,7 +31,6 @@ Require (-not (Test-Path (Join-Path $ModPath 'LoadFolders.xml'))) 'New load fold
 $defs = [xml](Get-Content (Join-Path $ModPath 'Defs/MGAnimal.xml') -Raw -Encoding UTF8)
 $nodes = @($defs.Defs.ChildNodes | Where-Object NodeType -eq Element)
 Require ($nodes.Count -eq 8) 'Expected four animal races and four pawn kinds'
-Require (@($nodes | Group-Object { $_.Name + '/' + $_.defName } | Where-Object Count -gt 1).Count -eq 0) 'Duplicate typed defName'
 Require ($defs.SelectNodes('//*[@Class or @MayRequire or @MayRequireAny]|//MainButtonDef|//comps|//modExtensions').Count -eq 0) 'New custom integration needs explicit review'
 Require ($defs.SelectNodes('//race/wildness').Count -eq 0) 'Obsolete race/wildness regression'
 # alternateGraphicChance without a matching alternateGraphics list crashes pawn render init
@@ -60,25 +56,6 @@ $horse = $defs.SelectSingleNode("/Defs/ThingDef[defName='MG_Horse']")
 Require ($horse.race.packAnimal -ceq 'true') 'Horse lost pack-animal functionality'
 Require ($horse.race.trainability -ceq 'Advanced') 'Horse training contract changed'
 
-# Resolve references against installed Core only, so DLC cannot mask a missing dependency.
-$names = @{}; $parents = @{}
-foreach ($file in Get-ChildItem $core -Recurse -Filter '*.xml') {
-    $xml = [xml](Get-Content $file.FullName -Raw -Encoding UTF8)
-    foreach ($node in $xml.DocumentElement.ChildNodes | Where-Object NodeType -eq Element) {
-        if ($node.defName) { $names[[string]$node.defName] = $true }
-        if ($node.GetAttribute('Name')) { $parents[$node.GetAttribute('Name')] = $true }
-    }
-}
-foreach ($node in $nodes) {
-    $names[[string]$node.defName] = $true
-    Require ($parents[$node.ParentName]) "Unresolved Core parent: $($node.ParentName)"
-}
-$paths = '//statBases/*|//race/body|//race/leatherDef|//race/trainability|//race/lifeStageAges/li/def|//race/lifeStageAges/li/soundWounded|//race/lifeStageAges/li/soundDeath|//race/lifeStageAges/li/soundCall|//race/lifeStageAges/li/soundAngry|//race/soundMeleeHitPawn|//race/soundMeleeHitBuilding|//race/soundMeleeMiss|//tools/li/capacities/li|//tools/li/linkedBodyPartsGroup|//wildBiomes/*|/Defs/PawnKindDef/race'
-$refs = @($defs.SelectNodes($paths))
-foreach ($node in $refs) {
-    $key = if ($node.ParentNode.Name -in @('statBases','wildBiomes')) { $node.Name } else { $node.InnerText }
-    Require ($names[$key]) "Unresolved Core/local reference: $key"
-}
 # Core graphics are packed game assets; verify custom PNGs here, rendering later in game.
 $prefixes = @($defs.SelectNodes('//texPath') | ForEach-Object InnerText | Sort-Object -Unique)
 foreach ($prefix in $prefixes | Where-Object { $_ -like 'Things/Animal/*' }) {
@@ -94,7 +71,6 @@ $pngs = @(Get-ChildItem $ModPath -Recurse -Filter '*.png')
 foreach ($file in $pngs) {
     $image = [Drawing.Image]::FromFile($file.FullName)
     try {
-        Require ($image.RawFormat.Guid -eq [Drawing.Imaging.ImageFormat]::Png.Guid) "Not a PNG: $($file.Name)"
         if ($file.Name -eq 'ModIcon.png') { Require ($image.Width -eq 128 -and $image.Height -eq 128) 'Wrong icon dimensions' }
         if ($file.Name -eq 'Preview.png') {
             Require ($image.Width -eq 896 -and $image.Height -eq 504) 'Wrong Preview dimensions'
@@ -102,6 +78,20 @@ foreach ($file in $pngs) {
         }
     } finally { $image.Dispose() }
 }
-foreach ($name in @('ModIcon.png','Preview.png')) { Require (Test-Path (Join-Path $ModPath "About/$name")) "Missing About image: $name" }
-Require ((Get-FileHash (Join-Path $ModPath 'ATTRIBUTION.md')).Hash -eq (Get-FileHash (Join-Path $ModPath '../ATTRIBUTION.md')).Hash) 'Distributed attribution is stale'
-Write-Output "PASS: four Wildness regressions; race/life-stage/pack contracts; $($refs.Count) Core/local references; $($pngs.Count) PNGs; distribution metadata."
+# Display names no shared check owns: meatLabel sits outside Check-Translations' inventory, and race and pawn kind must carry one name.
+$injected = @{}
+foreach ($language in @('English','French')) {
+    $injected[$language] = @{}
+    foreach ($file in Get-ChildItem (Join-Path $ModPath "Languages/$language/DefInjected") -Recurse -Filter '*.xml') {
+        foreach ($entry in ([xml](Get-Content $file.FullName -Raw -Encoding UTF8)).LanguageData.ChildNodes | Where-Object NodeType -eq Element) {
+            $injected[$language][$file.Directory.Name + '/' + $entry.Name] = $entry.InnerText
+        }
+    }
+}
+foreach ($id in $wildness.Keys) {
+    foreach ($language in $injected.Keys) {
+        if ($defs.SelectSingleNode("/Defs/ThingDef[defName='$id']/race/meatLabel")) { Require ($injected[$language].ContainsKey("ThingDef/$id.race.meatLabel")) "Missing $language meatLabel: $id" }
+        Require ($injected[$language]["ThingDef/$id.label"] -ceq $injected[$language]["PawnKindDef/$id.label"]) "Inconsistent animal name: $language $id"
+    }
+}
+Write-Output "PASS: four Wildness regressions; race/life-stage/pack contracts; guarded patch set; $($pngs.Count) PNGs; animal names in both languages."

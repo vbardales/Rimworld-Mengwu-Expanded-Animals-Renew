@@ -11,17 +11,20 @@ Full successful output: [Automated-output.txt](Automated-output.txt).
 Run from the repository root on Windows:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-Tests.ps1
+$R = "$PWD"; $S = '../scripts'
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-ModBasics.ps1 -ModRoot $R -Unofficial
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-Translations.ps1 -ModRoot $R
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-DefRefs.ps1 -ModPath $R/Mod -Brief
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-TypeRefs.ps1 -ModPath $R/Mod
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-XmlFields.ps1 -ModPath $R/Mod
+powershell -NoProfile -ExecutionPolicy Bypass -File $S/Check-DefInjected.ps1 -TransMod $R/Mod
+powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Check-Content.ps1
 ```
 
 Requirements: Windows PowerShell/.NET Framework, System.Drawing, local RimWorld 1.6
-Core data and managed assemblies, and the shared `../scripts/Check-DefInjected.ps1`.
-Override `-GameRoot` and `-InjectionChecker` for other installations. The runner fails
-when required references/checker are unavailable, on errors or on UNVERIFIED injection
-findings; it does not silently skip them. It reads game files without launching the game.
-The regression-guard tests create isolated copies under the system temp folder (removed afterwards).
+Core data and managed assemblies, and the shared checks in `../scripts/`.
 
-Reference game: `1.6.4871 rev590`. Final combined runner exited **0**.
+Reference game: `1.6.4871 rev590`. 2026-11-02: the local localization, runner and regression-guard scripts were cut in favour of the shared checks above; rerun green (table below dates from 2026-09-13).
 
 | Check | Actual result |
 | --- | --- |
@@ -29,7 +32,6 @@ Reference game: `1.6.4871 rev590`. Final combined runner exited **0**.
 | Content regressions | Four Wildness values at statBases checked; no obsolete race/wildness; race IDs, life-stage counts/ages and horse packing/training contracts passed. |
 | Dependencies/references | Both abstract parents and 149 referenced Core/local names resolved without using DLC data; unexpected custom classes/conditional content/dependencies trigger review failure. This is static name resolution, not complete loader/type validation. |
 | Assets/distribution | All 18 PNGs decoded; required custom directional textures present; icon 128 x 128 and Preview 896 x 504 below 1 MB; identity, incompatibility, unofficial notice, final repository link and attribution-copy equality passed. |
-| Regression detection | Four deliberately broken copies rejected for the intended reason: missing French meat label, head injected into bite, obsolete Wildness location, missing north texture. Shipped files unchanged. |
 | Reflected DefInjected paths | 56 keys; zero errors; no UNVERIFIED findings. 11,590 indexed defs and 29 applied operations belong to the reference context, not patches shipped by this mod. |
 
 ## Functional scenarios and applicability

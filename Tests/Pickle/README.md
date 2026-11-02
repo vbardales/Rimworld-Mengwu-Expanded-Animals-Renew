@@ -6,8 +6,7 @@ evidence to keep: `TESTING.md`. Nothing here claims an in-game result; every fin
 
 ## Scope
 
-The offline suite (`Tests/Run-Tests.ps1`, `Tests/Check-Content.ps1`, `Tests/Test-RegressionGuards.ps1`,
-`Tests/Check-Localization.ps1`) owns everything provable without a game: XML validity, the four
+The offline suite (the shared checks below plus `Tests/Check-Content.ps1`) owns everything provable without a game: XML validity, the four
 Wildness/`statBases` migrations, life-stage ages, `packAnimal`, trainability, the DefInjected
 inventory and coverage in both languages, the shipped PNGs' dimensions, and metadata/attribution
 text. A Pickle scenario that would only repeat one of those checks was not written.
