@@ -23,8 +23,7 @@
   "echo": {
     "file": "echo-concept.png",
     "preSized": false,
-    "mode": "opaque-lineart",
-    "color": "var(--accent)"
+    "mode": "opaque-lineart"
   },
   "icon": {
     "file": "ModIcon-source.png",
