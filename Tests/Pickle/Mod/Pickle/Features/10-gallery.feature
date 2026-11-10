@@ -201,3 +201,72 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal"
     And I take a screenshot "mengwu-4-dusk-hop"
     And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of enclosure-south on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey enclosure-south
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-enclosure-south"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of gate-south on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey gate-south
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    When Nelim's Pickle Tools: I frame the cell (159, 209) at zoom 5
+    And Nelim's Pickle Tools: the camera root size is set to 5
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-gate-south"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of gate-west on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey gate-west
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    When Nelim's Pickle Tools: I frame the cell (134, 219) at zoom 5
+    And Nelim's Pickle Tools: the camera root size is set to 5
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-gate-west"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of water-garden on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey water-garden
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "water-garden"
+    When Nelim's Pickle Tools: I frame the cell (153, 172) at zoom 4
+    And Nelim's Pickle Tools: the camera root size is set to 4
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-water-garden"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of hut on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey hut
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "hut"
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-hut"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of bare-clearing on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey bare-clearing
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-bare-clearing"
+    And no errors were logged
+
+  # SURVEY (2026-11-10): empty photo of emerald-clearing on the decorated save, to read cells at the default light (no staging). Not a gallery shot.
+  Scenario: survey emerald-clearing
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "emerald-clearing"
+    And Nelim's Pickle Tools: I let 10 frames pass
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And I take a screenshot "survey-emerald-clearing"
+    And no errors were logged
