@@ -34,6 +34,44 @@ protocols_read_sha: 150e6a17c12bac5adfad966ec85f0bdc7203139f
 
 # Mengwu Expanded - Animals Renew: status
 
+## NSB (sync-nsb-npt, 2026-11-10; replaces the section at each sync)
+
+Places read: 2026-11-10. Tribe read: 2026-11-10. Steps read: 2026-11-10.
+
+Changed in NSB since the shotlist (2026-10-27): the places `hut`, `water-garden`, `river-bridge` and others validated on the DECORATED save (2026-11-06, fixture `Nelims-tribe-decor-mods-z3`, copied to Mod/Pickle/Fixtures 2026-11-09); the old undecorated `Nelims-tribe` stays beside it. `enclosure-south` logo of flowers (growing zones 3 to 15) validated 2026-11-08, nothing may stand on it. Nelim's colour and mouth rules unchanged. Nothing new in the animal catalogue for these four animals.
+
+Rules said back (owner, 2026-11-05/07): everything in NSB is free; a colonist or domestic animal outside NSB needs express validation, except the animal the mod adds (authorized); a colonist property changes only with validation; every outfit free; every animal the mod includes is shown.
+
+Done: hair colour of Nelim set back to the roster value (Hair_DarkSaturatedReddish #382412 = rgb (56, 36, 18)), was (46, 34, 28), in the feature header and the 3 scenarios (S2 and S4 passed in f72c with the old colour: replay with the next ticket, the difference is small).
+
+Open (no owner question, session's work): (1) the gallery DepMap and `Given the save "Nelims-tribe"` load the OLD undecorated save while the places were validated decorated (z3, which needs NSB's decor mods): S3 failed at the brazier cell (146, 74) "already holds Wall", the hut is not the validated tea room. Decide with the S3 replay: move the gallery to z3 and a decor DepMap (ask NSB which map carries z3) or keep Nelims-tribe and say so. (2) S1 and S5 (enclosure-south): read the logo cells before placing lamps, brazier, hay (nothing on the flower logo). (3) Nelim body type Female is set by the scenarios: NSB has no Female body photo yet (VALIDE.md); it is her canonical sex, not a change, left as is. (4) Smile: `MouthSmile` replaces the canon `MouthLipsSmirk` as scene liberty (VALIDE.md "Liberté de scène", 2026-11-06), not a property change.
+
+NPT steps since: new, usable here: `the animals except A, B and C are kept out of the sanctuary` (S3 hut), `I frame the area centred on the point (x, z) at root size` (half-cell framing), `the building X at (x, z) is put out`, `carries the item X made of Y`, `I place the decor X on a cardinal cell`. Steps used by S2 to S4 still exist (`lies at`, `faces`, `PredatorHunt`, `advance exactly N ticks`).
+
+| Place | Shots | Changes made for the gallery | Last read |
+|---|---|---|---|
+| water-garden (moss bank x 143-158) | S2 | Filth_Dirt mound, Daylily, removed after; geyser (149-150, 173) kept out of frame | 2026-11-10 |
+| hut (tea-room, (140, 73)) | S3 | pot, brazier, cat; hut animals kept out; PENDING: decorated vs old save | 2026-11-10 |
+| bare-clearing | S4 | YellowTallGrass, Daylily, removed after | 2026-11-10 |
+| enclosure-south (gates (159, 207), (130, 219)) | S1, S5 (not written) | emptied, lamps, brazier, grass; logo cells free of objects | 2026-11-10 |
+| window-backdrop-for-height | S6 (not written) | none | 2026-11-10 |
+
+| Colonist | Shots | Outfit (garment, why) | Last read | Exceptions |
+|---|---|---|---|---|
+| Nelim | S1 to S5 | Apparel_Pants brown (70, 56, 44), VAE_Apparel_Jumpsuit emerald (31, 92, 69), VAE_Headgear_Scarf orange (230, 120, 40): working day on the steppe, her emerald and orange accent; one outfit all day | NELIM-PROFIL 2026-11-10 | none (hair colour back to roster 2026-11-10; smile = scene liberty) |
+
+| Animal (NSB) | Shots | Outfit | Last read | Exceptions |
+|---|---|---|---|---|
+| none: Nelim's pets (Atticus, Shogun) not used | | | | none |
+
+| Included animal (rule 5) | Shot(s) |
+|---|---|
+| MG_Horse (Mengwu horse) | S1, S5 (not written yet), S6 card |
+| MG_TuBoShu (marmot, adult and baby) | S2, S5 |
+| MG_TuSun (Pallas's cat) | S3, S4 |
+| MG_TiaoShu (jerboa) | S4, S5 |
+No MISSING. The mod's four animals are authorized by default (no validation).
+
 ## Audit 2026-10-12 (replaces the 2026-10-02 stage decision; older journal in docs/runs/status-journal.md)
 
 Audited revision 8d867cb. Old vocabulary l10n maps to declareDependencies (AUDIT.md section 16). First failing transition: declareDependencies[0.1.0] -> auditSettings, criterion 4.f (animal integrations untreated). Gates 4.a-4.e unchanged (Core-only content, no patch, no LoadFolders; audit 2026-09-13), not re-run now.

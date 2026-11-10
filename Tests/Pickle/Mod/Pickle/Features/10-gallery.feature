@@ -8,9 +8,10 @@
 # closes (other gate, other rectangle). One start hour per scene (`I set the hour to N`, photographer's choice, 2026-10-14);
 # weather Clear (set at once, the save keeps the previous one: NPT, 2026-10-27) except S5 (night). Frames (cells across): S2 tight 9, S4 tight-medium 12, S1 16 (opens, establishes the paddock), S5 18 (closes), S3 32 (the widest, the hut and its surroundings).
 #
+# HAIR 2026-11-10 (sync-nsb-npt): Highpony colour = roster Hair_DarkSaturatedReddish #382412 = rgb (56, 36, 18), was (46, 34, 28) (a colonist property: roster unless Virginie validates).
 # NELIM, whole day (continuity, no change of outfit: the day is one): Apparel_Pants dyed rgb (70, 56, 44) first (legs), VAE_Apparel_Jumpsuit dyed
 # rgb (31, 92, 69) deep emerald, VAE_Headgear_Scarf dyed rgb (230, 120, 40) orange accent (NELIM-PROFIL.md, "Quotidien"), hair Roo_HD_Hair_Highpony
-# rgb (46, 34, 28) (no hat: no hat-hair mod needed), face = the sequence played green in CreaturesOfKi (held neutral, kit neutral, BrowNormal, MouthSmile,
+# rgb (56, 36, 18) (no hat: no hat-hair mod needed), face = the sequence played green in CreaturesOfKi (held neutral, kit neutral, BrowNormal, MouthSmile,
 # LidCheerful, expression "normal" LAST, map at 20 degrees); this replaces the `Nelim has her own face` step of the first draft, whose smirk is not the default
 # smile the owner asks of default scenes. Only Nelim: no other colonist. Risk: the jumpsuit may not cover the legs the way the pants do (read on the capture).
 #
@@ -114,7 +115,7 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" stands at (150, 172) facing East
     And Nelim's Pickle Tools: "Nelim" body type is Female
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (46, 34, 28)
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (56, 36, 18)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (70, 56, 44)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Apparel_Jumpsuit" dyed rgb (31, 92, 69)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Headgear_Scarf" dyed rgb (230, 120, 40)
@@ -154,7 +155,7 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" stands at (143, 70) facing North
     And Nelim's Pickle Tools: "Nelim" body type is Female
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (46, 34, 28)
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (56, 36, 18)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (70, 56, 44)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Apparel_Jumpsuit" dyed rgb (31, 92, 69)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Headgear_Scarf" dyed rgb (230, 120, 40)
@@ -193,7 +194,7 @@ Feature: The gallery of the Mengwu animals tells one day at the Sanctuary
     And Nelim's Pickle Tools: "Nelim" stands at (191, 152) facing East
     And Nelim's Pickle Tools: "Nelim" body type is Female
     And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
-    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (46, 34, 28)
+    And Nelim's Pickle Tools: "Nelim" hair colour is rgb (56, 36, 18)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (70, 56, 44)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Apparel_Jumpsuit" dyed rgb (31, 92, 69)
     And Nelim's Pickle Tools: "Nelim" wears "VAE_Headgear_Scarf" dyed rgb (230, 120, 40)
