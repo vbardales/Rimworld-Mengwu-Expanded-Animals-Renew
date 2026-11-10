@@ -1,30 +1,14 @@
 {
   "panel": {
     "title": "Mengwu Expanded - Animals Renew (unofficial)",
-    "titleSize": 40,
     "titleParts": [
-      {
-        "text": "Mengwu Expanded -"
-      },
-      {
-        "text": "Animals",
-        "breakBefore": true
-      }
+      { "text": "Mengwu Expanded - Animals" },
+      { "text": "Renew (unofficial)", "suffix": true }
     ],
-    "suffix": "Renew",
-    "tag": "(unofficial)",
-    "tagInline": true,
-    "copyLines": [
-      "A steppe horse and three small",
-      "companions for your colony."
-    ]
+    "description": "A steppe horse and three small companions for your colony."
   },
-  "backgroundFile": "Preview-source.png",
-  "echo": {
-    "file": "echo-concept.png",
-    "preSized": false,
-    "mode": "opaque-lineart"
-  },
+  "background": { "file": "Preview-source.png" },
+  "echo": { "file": "echo-concept.png", "mode": "opaque-lineart", "preSized": false },
   "icon": {
     "file": "ModIcon-source.png",
     "corner": "bottom-left"
